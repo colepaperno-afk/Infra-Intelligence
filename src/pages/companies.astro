@@ -1,0 +1,96 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { companies, sectors } from "../data/sample";
+---
+
+<SiteLayout
+  title="Companies"
+  currentPath="/companies/"
+  description="Explore fictional sample companies across the infrastructure economy."
+>
+  <div class="page-content">
+    <section class="page-heading directory-heading">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> RESEARCH UNIVERSE / SAMPLE</p>
+        <h1>Company <em>explorer.</em></h1>
+        <p class="heading-copy">A working universe of fictional entities to demonstrate sector discovery and research workflows.</p>
+      </div>
+      <div class="heading-aside">
+        <div class="asof-label">UNIVERSE STATUS</div>
+        <div class="asof-date">{String(companies.length).padStart(2, "0")} <span>ENTITIES</span></div>
+        <div class="asof-note"><span class="sample-dot"></span> ALL RECORDS ARE SAMPLES</div>
+      </div>
+    </section>
+
+    <section class="explorer-controls" aria-label="Company filters">
+      <label class="search-field">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="sr-only">Search sample companies</span>
+        <input id="company-search" type="search" placeholder="Search entity, focus, or identifier" autocomplete="off" />
+        <kbd>FILTER</kbd>
+      </label>
+      <label class="select-field">
+        <span class="sr-only">Filter by sector</span>
+        <select id="sector-filter">
+          <option value="">All sectors</option>
+          {sectors.map((sector) => <option value={sector}>{sector}</option>)}
+        </select>
+      </label>
+      <span class="result-count"><b id="result-count">{companies.length}</b> SAMPLE RECORDS</span>
+    </section>
+
+    <section class="explorer-table-wrap" aria-labelledby="explorer-heading">
+      <div class="explorer-table-title">
+        <h2 id="explorer-heading">Entity register</h2>
+        <span>NON-INVESTMENT RESEARCH DEMO</span>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table explorer-table">
+          <thead><tr><th>IDENTIFIER / ENTITY</th><th>SECTOR</th><th>RESEARCH FOCUS</th><th>DEMO SIGNAL</th><th>CONTEXT</th></tr></thead>
+          <tbody id="company-rows">
+            {companies.map((company) => (
+              <tr data-company-row data-sector={company.sector} data-search={`${company.name} ${company.symbol} ${company.sector} ${company.focus} ${company.note}`.toLowerCase()}>
+                <td><span class="entity-symbol">{company.symbol}</span><strong>{company.name}</strong></td>
+                <td><span class="sector-tag">{company.sector}</span></td>
+                <td>{company.focus}</td>
+                <td><span class:list={["signal-pill", company.signal.toLowerCase()]}><i></i>{company.signal}</span></td>
+                <td class="context-cell">{company.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p id="empty-results" class="empty-results" hidden>No sample entities match this search. Try another term or clear the sector filter.</p>
+      </div>
+      <div class="table-endnote"><span class="sample-dot"></span> Fictional entities and signals. No security prices, ratings, or live data.</div>
+    </section>
+
+    <section class="research-caveat">
+      <span class="caveat-mark">i</span>
+      <div><strong>About this universe</strong><p>This explorer uses invented company names and identifiers. Research themes and signal labels are illustrative only and are not investment recommendations or representations of current market conditions.</p></div>
+    </section>
+  </div>
+  <script>
+    const search = document.querySelector<HTMLInputElement>("#company-search");
+    const sector = document.querySelector<HTMLSelectElement>("#sector-filter");
+    const rows = [...document.querySelectorAll<HTMLTableRowElement>("[data-company-row]")];
+    const count = document.querySelector<HTMLElement>("#result-count");
+    const empty = document.querySelector<HTMLElement>("#empty-results");
+
+    function filterCompanies() {
+      const term = search?.value.trim().toLowerCase() ?? "";
+      const selectedSector = sector?.value ?? "";
+      let visible = 0;
+      for (const row of rows) {
+        const matches = (row.dataset.search ?? "").includes(term)
+          && (!selectedSector || row.dataset.sector === selectedSector);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      if (count) count.textContent = String(visible).padStart(2, "0");
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    search?.addEventListener("input", filterCompanies);
+    sector?.addEventListener("change", filterCompanies);
+  </script>
+</SiteLayout>
