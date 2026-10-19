@@ -1,0 +1,127 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { companies, sectors } from "../data/sample";
+
+const recent = companies.slice(0, 5);
+---
+
+<SiteLayout
+  title="Overview"
+  currentPath="/"
+  description="A sample research dashboard exploring the infrastructure behind the next economy."
+>
+  <div class="page-content dashboard-page">
+    <section class="page-heading dashboard-heading">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> THE PHYSICAL LAYER</p>
+        <h1>Follow the <em>buildout.</em></h1>
+        <p class="heading-copy">A connected view of the companies, capacity, and constraints shaping the infrastructure economy.</p>
+      </div>
+      <div class="heading-aside">
+        <div class="asof-label">RESEARCH SNAPSHOT</div>
+        <div class="asof-date">19 <span>OCT</span> 2026</div>
+        <div class="asof-note"><span class="sample-dot"></span> DEMONSTRATION DATA</div>
+      </div>
+    </section>
+
+    <section class="sector-strip" aria-label="Coverage sectors">
+      <div class="strip-title">COVERAGE<br />UNIVERSE</div>
+      {sectors.map((sector, index) => (
+        <a class="sector-cell" href="/companies/">
+          <span class="sector-index">0{index + 1}</span>
+          <span>{sector}</span>
+          <span class="sector-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="signal-panel" aria-labelledby="signal-title">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> CROSS-SECTOR VIEW</p>
+            <h2 id="signal-title">Infrastructure signal</h2>
+          </div>
+          <span class="panel-tag">SYNTHETIC SERIES <i></i></span>
+        </div>
+        <p class="panel-intro">Illustrative activity index <span>· sample values only</span></p>
+        <div class="chart-wrap">
+          <div class="chart-y-labels" aria-hidden="true"><span>HIGHER</span><span>MID</span><span>LOWER</span></div>
+          <svg class="signal-chart" viewBox="0 0 700 240" role="img" aria-labelledby="chart-title chart-desc">
+            <title id="chart-title">Illustrative infrastructure activity series</title>
+            <desc id="chart-desc">A fictional upward-trending index shown for interface demonstration only.</desc>
+            <defs>
+              <pattern id="chart-grid" width="70" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 70 0 L 0 0 0 60" fill="none" stroke="#29302a" stroke-width="1" />
+              </pattern>
+              <linearGradient id="signal-fill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#c2e879" stop-opacity=".18" />
+                <stop offset="100%" stop-color="#c2e879" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <rect width="700" height="180" fill="url(#chart-grid)" />
+            <path d="M0 152 C35 145 38 158 72 139 S122 141 148 126 S194 136 220 111 S266 120 292 104 S337 112 366 85 S413 106 438 77 S488 88 512 67 S557 78 584 52 S633 63 660 39 S686 45 700 25 V180 H0Z" fill="url(#signal-fill)" />
+            <path d="M0 152 C35 145 38 158 72 139 S122 141 148 126 S194 136 220 111 S266 120 292 104 S337 112 366 85 S413 106 438 77 S488 88 512 67 S557 78 584 52 S633 63 660 39 S686 45 700 25" fill="none" stroke="#c2e879" stroke-width="2" />
+            <line x1="438" y1="0" x2="438" y2="180" stroke="#9caa8d" stroke-dasharray="3 5" opacity=".55" />
+            <circle cx="438" cy="77" r="5" fill="#101310" stroke="#d5f39b" stroke-width="2" />
+            <text x="448" y="68" fill="#d5f39b" font-size="10" font-family="monospace">SAMPLE</text>
+          </svg>
+          <div class="chart-x-labels" aria-hidden="true"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1</span><span>Q2</span></div>
+        </div>
+        <div class="chart-foot"><span>Illustrative scenario path</span><span>NOT A MARKET INDEX OR FORECAST</span></div>
+      </section>
+
+      <section class="sector-ledger" aria-labelledby="ledger-title">
+        <div class="panel-header ledger-header">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> RESEARCH LANES</p>
+            <h2 id="ledger-title">Where to look</h2>
+          </div>
+          <a href="/companies/" class="text-link">UNIVERSE <span>↗</span></a>
+        </div>
+        {sectors.map((sector, index) => (
+          <a href="/companies/" class="ledger-row">
+            <span class="ledger-count">0{index + 1}</span>
+            <span class="ledger-name">{sector}</span>
+            <span class="ledger-microbar" aria-hidden="true"><i style={`--bar:${37 + index * 11}%`}></i></span>
+            <span class="ledger-open" aria-hidden="true">↗</span>
+          </a>
+        ))}
+        <p class="ledger-footnote"><span class="sample-dot"></span> Relative bar lengths are illustrative.</p>
+      </section>
+    </div>
+
+    <section class="watchlist-section" aria-labelledby="watchlist-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span> TRACKED ENTITIES</p>
+          <h2 id="watchlist-title">Company watch</h2>
+        </div>
+        <a href="/companies/" class="text-link">OPEN EXPLORER <span>↗</span></a>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>ENTITY</th><th>SECTOR</th><th>RESEARCH FOCUS</th><th>DEMO SIGNAL</th><th></th></tr></thead>
+          <tbody>
+            {recent.map((company) => (
+              <tr>
+                <td><span class="entity-symbol">{company.symbol}</span><strong>{company.name}</strong></td>
+                <td>{company.sector}</td>
+                <td>{company.focus}</td>
+                <td><span class:list={["signal-pill", company.signal.toLowerCase()]}><i></i>{company.signal}</span></td>
+                <td><a href="/companies/" class="row-arrow" aria-label={`Explore ${company.name}`}>↗</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="data-disclaimer">Company names, identifiers, research themes, and signals above are fictional sample data created for this interface demonstration.</p>
+    </section>
+
+    <section class="closing-note">
+      <span class="closing-index">FIELD NOTE / 001</span>
+      <p>Infrastructure is a chain of dependencies. Start with the constraint, then follow who is building around it.</p>
+      <a href="/map/" class="closing-link">TRACE THE NETWORK <span>→</span></a>
+    </section>
+  </div>
+</SiteLayout>

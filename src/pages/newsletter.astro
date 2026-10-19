@@ -1,0 +1,83 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Dispatch"
+  currentPath="/newsletter/"
+  description="A sample newsletter sign-up concept for infrastructure research."
+>
+  <div class="page-content newsletter-page">
+    <section class="newsletter-lead">
+      <div class="newsletter-copy">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> THE INFRA DISPATCH / CONCEPT</p>
+        <h1>Read the signals<br />beneath the <em>surface.</em></h1>
+        <p class="newsletter-intro">A field guide to the systems being built around compute, automation, connectivity, and power. Designed for curious operators and long-horizon thinkers.</p>
+        <div class="newsletter-meta">
+          <span><i></i> PERIODIC RESEARCH NOTE</span>
+          <span>NO CLAIMS OF LIVE COVERAGE</span>
+        </div>
+        <form class="signup-form" id="signup-form">
+          <label for="email-address">EMAIL ADDRESS</label>
+          <div class="signup-row">
+            <input id="email-address" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            <button type="submit">PREVIEW SIGN-UP <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="form-note">Demo only. Submitting shows a local preview confirmation; no email is sent or stored.</p>
+          <p class="form-message" id="form-message" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+      <div class="dispatch-art" aria-label="Abstract sample illustration of connected infrastructure signals">
+        <div class="art-coordinate coordinate-one">41° / SAMPLE</div>
+        <div class="art-coordinate coordinate-two">SYSTEMS IN MOTION</div>
+        <svg viewBox="0 0 480 480" role="img" aria-labelledby="dispatch-art-title dispatch-art-desc">
+          <title id="dispatch-art-title">Infrastructure signal field</title>
+          <desc id="dispatch-art-desc">An abstract diagram of connected sample nodes, not a map or live system.</desc>
+          <circle cx="240" cy="240" r="172" fill="none" stroke="#313a31" stroke-width="1" />
+          <circle cx="240" cy="240" r="124" fill="none" stroke="#313a31" stroke-width="1" stroke-dasharray="3 7" />
+          <circle cx="240" cy="240" r="76" fill="none" stroke="#3b4638" stroke-width="1" />
+          <path d="M240 68V412M68 240H412M118 118L362 362M362 118L118 362" stroke="#29322b" stroke-width="1" />
+          <path d="M118 118L240 192L362 118M118 362L240 286L362 362M68 240L192 240L240 192L288 240L412 240M240 68L240 192L288 240L240 286L240 412" fill="none" stroke="#a8cf6d" stroke-width="1.5" />
+          <path d="M118 118L192 240L118 362M362 118L288 240L362 362" fill="none" stroke="#6b8271" stroke-width="1" stroke-dasharray="4 5" />
+          <circle cx="240" cy="192" r="7" fill="#111611" stroke="#d5f39b" stroke-width="2" />
+          <circle cx="192" cy="240" r="6" fill="#c2e879" />
+          <circle cx="288" cy="240" r="6" fill="#83a98a" />
+          <circle cx="240" cy="286" r="6" fill="#c2e879" />
+          <circle cx="118" cy="118" r="4" fill="#83a98a" />
+          <circle cx="362" cy="118" r="4" fill="#83a98a" />
+          <circle cx="118" cy="362" r="4" fill="#83a98a" />
+          <circle cx="362" cy="362" r="4" fill="#83a98a" />
+          <text x="257" y="188" fill="#d5f39b" font-size="9" font-family="monospace">COMPUTE</text>
+          <text x="164" y="260" fill="#8ba292" font-size="9" font-family="monospace">NETWORK</text>
+          <text x="268" y="260" fill="#8ba292" font-size="9" font-family="monospace">ENERGY</text>
+          <text x="238" y="247" fill="#e0e7d9" font-size="11" font-family="monospace" text-anchor="middle">II</text>
+        </svg>
+        <div class="art-caption">FIG. A <span>ABSTRACT SAMPLE NETWORK</span></div>
+      </div>
+    </section>
+
+    <section class="dispatch-topics" aria-label="Newsletter topics">
+      <div class="topics-lead"><span class="eyebrow"><span class="eyebrow-rule"></span> THE LENS</span><p>Follow the physical bottlenecks, not just the headlines.</p></div>
+      <div class="topic-list">
+        <div><span>01</span><strong>Capacity</strong><small>Where supply meets demand</small></div>
+        <div><span>02</span><strong>Dependencies</strong><small>How the stack connects</small></div>
+        <div><span>03</span><strong>Signals</strong><small>What to keep watching</small></div>
+      </div>
+    </section>
+    <p class="newsletter-disclaimer">This sign-up is a front-end demonstration only and is not connected to a mailing list or data collection service.</p>
+  </div>
+  <script>
+    const form = document.querySelector<HTMLFormElement>("#signup-form");
+    const message = document.querySelector<HTMLElement>("#form-message");
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const email = new FormData(form).get("email");
+      if (message) {
+        message.hidden = false;
+        message.textContent = `Preview complete for ${String(email)}. This demo did not send or save your email.`;
+      }
+      form.reset();
+    });
+  </script>
+</SiteLayout>

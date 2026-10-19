@@ -1,0 +1,39 @@
+---
+const { currentPath } = Astro.props;
+
+const items = [
+  { href: "/", label: "Overview", index: "01" },
+  { href: "/companies/", label: "Companies", index: "02" },
+  { href: "/map/", label: "Infrastructure map", index: "03" },
+  { href: "/newsletter/", label: "Dispatch", index: "04" },
+];
+---
+
+<aside class="sidebar" aria-label="Primary navigation">
+  <a class="brand" href="/" aria-label="Infra Intelligence home">
+    <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+    <span class="brand-name">INFRA<span>INTELLIGENCE</span></span>
+  </a>
+  <div class="workspace-label">RESEARCH DESK <span>DEMO</span></div>
+  <nav class="side-nav">
+    {items.map((item) => (
+      <a
+        class:list={["nav-link", { "is-active": currentPath === item.href }]}
+        href={item.href}
+        aria-current={currentPath === item.href ? "page" : undefined}
+      >
+        <span class="nav-index">{item.index}</span>
+        <span>{item.label}</span>
+        {item.href === currentPath && <span class="nav-active-mark" aria-hidden="true"></span>}
+      </a>
+    ))}
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="coverage-mini">
+      <span class="micro-label">COVERAGE UNIVERSE</span>
+      <strong>5 <span>sectors</span></strong>
+      <div class="coverage-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="sample-stamp"><span class="sample-dot"></span> SAMPLE ENVIRONMENT</div>
+  </div>
+</aside>
