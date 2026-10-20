@@ -306,13 +306,19 @@ def record_decision(
     return True
 
 
-def submit_command(args: argparse.Namespace) -> int:
+def submit_command(
+    args: argparse.Namespace,
+    *,
+    decisions_path: Path = DEFAULT_DECISIONS,
+) -> int:
     created = record_decision(
         args.article_id,
         args.decision,
         args.reviewer,
         args.notes,
         args.request_id,
+        queue_path=args.queue,
+        decisions_path=decisions_path,
     )
     print("Editorial decision recorded." if created else "Duplicate request ignored.")
     return 0
@@ -327,6 +333,12 @@ def main() -> int:
     submit.add_argument("--reviewer", required=True)
     submit.add_argument("--notes", default="")
     submit.add_argument("--request-id", required=True)
+    submit.add_argument(
+        "--queue",
+        type=Path,
+        default=DEFAULT_QUEUE,
+        help="active review queue to validate against",
+    )
     args = parser.parse_args()
     try:
         return submit_command(args)
