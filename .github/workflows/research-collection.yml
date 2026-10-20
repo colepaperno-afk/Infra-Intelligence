@@ -15,14 +15,14 @@ concurrency:
 
 jobs:
   collect:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -33,7 +33,7 @@ jobs:
         run: python research/collect.py
 
       - name: Open or update unreviewed research pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           token: ${{ github.token }}
           branch: automation/research-queue
@@ -44,7 +44,7 @@ jobs:
           body: |
             Automated collection from the curated public feeds in `research/sources.json`.
 
-            New entries remain labeled `unreviewed` and are not displayed on public-facing pages. Verify each source article, excerpt, category, ticker, and publication time before updating a finding's `review_status` and merging this pull request.
+            Eligible entries are sorted by deterministic relevance score. Excluded entries are retained separately with an exclusion reason. New entries remain `unreviewed` and are not displayed on public-facing pages. Verify each source article, excerpt, category, score reasons, company/ticker metadata, and publication time before updating a finding's `review_status` and merging this pull request.
 
-            Collection is feed parsing only; no AI analysis, investment recommendation, or live financial data is produced.
+            Collection is rules-based feed triage only; no LLM analysis, investment recommendation, live financial data, or automatic publication is produced.
           draft: true

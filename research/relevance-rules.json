@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "stale_after_days": 365,
+  "maximum_score": 100,
+  "score_weights": {
+    "topic": {
+      "ai_semiconductors": 35,
+      "data_centers": 35,
+      "energy_power": 30,
+      "robotics": 28,
+      "networking": 28,
+      "cooling": 26
+    },
+    "compute_link": 20,
+    "major_event": 22,
+    "measurable_detail": 15,
+    "public_company": 8
+  },
+  "patterns": {
+    "compute_link": [
+      "\\bAI infrastructure\\b",
+      "\\bAI data cent(?:er|re)s?\\b",
+      "\\b(?:hyperscal(?:er|e)|cloud provider|data cent(?:er|re)|server farm|compute capacity)\\b",
+      "\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b.{0,60}\\b(?:data cent(?:er|re)|AI|compute|hyperscal)\\b",
+      "\\b(?:data cent(?:er|re)|AI|compute|hyperscal)\\b.{0,60}\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b"
+    ],
+    "major_event": [
+      "\\b(?:invest(?:s|ed|ment(?:s)?|ing)?|commit(?:s|ted|ting)?|spend(?:s|ing)?|capital expenditures?|capex|acquir(?:e|es|ed|ing)|acquisitions?|merg(?:e|er)s?|partner(?:s|ed|ship|ships)|fund(?:s|ing|ed)|raises?\\s+\\$|earnings|production capacity|manufacturing capacity|build(?:s|ing)?|construct(?:s|ion|ing)|expansion|orders?)\\b"
+    ],
+    "measurable_detail": [
+      "\\$\\s?\\d",
+      "\\b\\d+(?:\\.\\d+)?\\s?(?:billion|million|bn|mn|GW|MW|kW|GWh|MWh|MW|megawatts?|gigawatts?|servers?|GPUs?|chips?|racks?|acres?|square feet|sq\\.?\\s?ft\\.?|units?|facilities|fabs?)\\b",
+      "\\b(?:more than|over|up to|at least)\\s+\\d"
+    ],
+    "sponsorship": [
+      "\\b(?:sponsored|paid content|paid partnership|advertorial|partner content|promoted content|advertisement|brand studio|brought to you by)\\b"
+    ],
+    "evergreen": [
+      "^\\s*(?:how to|what is|what are|explainer|explained|guide to|a guide to|the history of|tips for|everything you need to know)\\b",
+      "\\b(?:beginner'?s guide|the basics of|history of)\\b"
+    ],
+    "gaming": [
+      "\\b(?:gaming|video game|esports|geforce|playstation|xbox|game console|game developers?)\\b"
+    ],
+    "infra_specific": [
+      "\\b(?:AI|artificial intelligence|machine learning|data cent(?:er|re)|hyperscal(?:er|e)|cloud computing|high-performance computing|HPC|server|foundr(?:y|ies)|wafer|HBM|advanced packaging|accelerator|robot(?:ics)?|humanoid|industrial automation|grid|nuclear|utility)\\b"
+    ]
+  },
+  "topic_patterns": {
+    "ai_semiconductors": [
+      "\\b(?:AI|artificial intelligence|machine learning)\\b.{0,50}\\b(?:chip|semiconductor|GPU|accelerator|HBM|memory|foundr|wafer|packaging|compute)\\b",
+      "\\b(?:chip|semiconductor|GPU|accelerator|HBM|memory|foundr|wafer|packaging)\\b.{0,50}\\b(?:AI|artificial intelligence|machine learning|data cent(?:er|re)|hyperscal|cloud|compute)\\b",
+      "\\b(?:semiconductor manufacturing|foundry capacity|advanced packaging|HBM|high-bandwidth memory)\\b",
+      "\\b(?:semiconductor|foundry|wafer|HBM|advanced packaging)\\b.{0,50}\\b(?:capacity|investment|production|manufactur|expansion)\\b",
+      "\\b(?:capacity|investment|production|manufactur|expansion)\\b.{0,50}\\b(?:semiconductor|foundry|wafer|HBM|advanced packaging)\\b"
+    ],
+    "data_centers": [
+      "\\b(?:data cent(?:er|re)s?|hyperscal(?:er|e)|colocation|data hall|server farm)\\b"
+    ],
+    "energy_power": [
+      "\\b(?:nuclear|utility|utilities|grid|transmission|substation|generation capacity|power plant|power demand|energy demand|electricity demand|electricity supply|grid infrastructure|turbine|transformer)\\b"
+    ],
+    "robotics": [
+      "\\b(?:robot(?:ics)?|humanoid|cobot|industrial automation|robotic arm|physical AI)\\b"
+    ],
+    "networking": [
+      "\\b(?:network(?:ing)?|ethernet|optical interconnect|fiber(?:-optic)?|switching|router|interconnect)\\b"
+    ],
+    "cooling": [
+      "\\b(?:cooling|thermal management|heat rejection|liquid cooling)\\b"
+    ],
+    "consumer_gaming": [
+      "\\b(?:gaming|video game|esports|geforce|playstation|xbox|game console|game developers?)\\b"
+    ]
+  },
+  "event_types": [
+    {
+      "type": "acquisition_or_partnership",
+      "patterns": ["\\b(?:acquir(?:e|es|ed|ing)|acquisitions?|merg(?:e|er)s?|partner(?:s|ed|ship|ships)|joint venture)\\b"]
+    },
+    {
+      "type": "investment_or_funding",
+      "patterns": ["\\b(?:invest(?:s|ed|ment(?:s)?|ing)?|capital expenditures?|capex|fund(?:s|ing|ed)|raises?\\s+\\$|commit(?:s|ted|ting)?\\s+\\$)\\b"]
+    },
+    {
+      "type": "capacity_or_construction",
+      "patterns": ["\\b(?:production capacity|manufacturing capacity|capacity|build(?:s|ing)?|construct(?:s|ion|ing)|expansion|facility|campus|fab)\\b"]
+    },
+    {
+      "type": "earnings_or_guidance",
+      "patterns": ["\\b(?:earnings|quarterly results|revenue|guidance|outlook)\\b"]
+    },
+    {
+      "type": "product_or_technology",
+      "patterns": ["\\b(?:launch(?:es|ed)?|unveil(?:s|ed)?|introduc(?:es|ed)|announc(?:es|ed)|release(?:s|d)?)\\b"]
+    }
+  ],
+  "company_entities": [
+    {"name": "NVIDIA", "ticker": "NVDA", "aliases": ["NVIDIA", "NVDA"]},
+    {"name": "Advanced Micro Devices", "ticker": "AMD", "aliases": ["Advanced Micro Devices", "AMD"]},
+    {"name": "Equinix", "ticker": "EQIX", "aliases": ["Equinix", "EQIX"]},
+    {"name": "Intel", "ticker": "INTC", "aliases": ["Intel", "INTC"]},
+    {"name": "Broadcom", "ticker": "AVGO", "aliases": ["Broadcom", "AVGO"]},
+    {"name": "Arista Networks", "ticker": "ANET", "aliases": ["Arista Networks", "ANET"]},
+    {"name": "Vertiv", "ticker": "VRT", "aliases": ["Vertiv", "VRT"]},
+    {"name": "Eaton", "ticker": "ETN", "aliases": ["Eaton", "ETN"]},
+    {"name": "Tesla", "ticker": "TSLA", "aliases": ["Tesla", "TSLA"]},
+    {"name": "Amazon", "ticker": "AMZN", "aliases": ["Amazon", "AMZN"]},
+    {"name": "Alphabet", "ticker": "GOOGL", "aliases": ["Alphabet", "Google", "GOOGL"]},
+    {"name": "Microsoft", "ticker": "MSFT", "aliases": ["Microsoft", "MSFT"]},
+    {"name": "Oracle", "ticker": "ORCL", "aliases": ["Oracle", "ORCL"]},
+    {"name": "Taiwan Semiconductor Manufacturing Company", "ticker": "TSM", "aliases": ["Taiwan Semiconductor Manufacturing", "TSMC"]},
+    {"name": "Samsung Electronics", "ticker": null, "aliases": ["Samsung Electronics"]},
+    {"name": "Micron Technology", "ticker": "MU", "aliases": ["Micron", "Micron Technology"]}
+  ]
+}

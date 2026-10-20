@@ -17,6 +17,7 @@ from collect import (
     fetch_feed,
     load_queue,
     parse_feed,
+    score_article,
     validate_source_registry,
 )
 
@@ -26,7 +27,6 @@ SOURCE = {
     "publisher": "Test Publisher",
     "url": "https://feeds.example.test/rss.xml",
     "source_type": "publisher",
-    "fallback_category": "ai_semiconductors",
 }
 RETRIEVED_AT = "2026-10-19T00:00:00Z"
 
@@ -53,6 +53,10 @@ class ParseFeedTests(unittest.TestCase):
         self.assertEqual(items[0]["affected_tickers"], ["AMD"])
         self.assertEqual(items[0]["excerpt"], "AMD describes a new accelerator.")
         self.assertEqual(items[0]["review_status"], "unreviewed")
+        self.assertIn(items[0]["priority"], {"high", "medium", "low", "excluded"})
+        self.assertIsInstance(items[0]["relevance_score"], int)
+        self.assertIsInstance(items[0]["relevance_reasons"], list)
+        self.assertEqual(items[0]["mentioned_companies"], ["Advanced Micro Devices"])
 
     def test_parses_atom_feed_and_alternate_link(self) -> None:
         payload = b"""<feed xmlns="http://www.w3.org/2005/Atom">
@@ -104,6 +108,19 @@ class URLAndRegistryTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 canonicalize_url(value)
 
+    def test_classification_does_not_force_source_fallback_category(self) -> None:
+        payload = b"""<rss><channel><item>
+          <title>NVIDIA updates quarterly meeting schedule</title>
+          <link>https://example.test/meeting</link>
+          <guid>meeting-1</guid>
+          <pubDate>Mon, 19 Oct 2026 10:30:00 GMT</pubDate>
+        </item></channel></rss>"""
+        source = {**SOURCE, "fallback_category": "ai_semiconductors"}
+        item = parse_feed(payload, source, RETRIEVED_AT)[0]
+        self.assertEqual(item["category"], "other")
+        self.assertEqual(item["relevance_score"], 0)
+        self.assertEqual(item["priority"], "excluded")
+
     def test_classifies_all_covered_infrastructure_categories(self) -> None:
         examples = {
             "ai_semiconductors": "New semiconductor GPU accelerator",
@@ -122,6 +139,105 @@ class URLAndRegistryTests(unittest.TestCase):
             validate_source_registry([{**SOURCE, "url": ""}])
         with self.assertRaises(ValueError):
             validate_source_registry([SOURCE, SOURCE])
+
+
+class RelevanceScoringTests(unittest.TestCase):
+    def _score(
+        self,
+        title: str,
+        excerpt: str,
+        category: str,
+        published_at: str = "2026-10-18T00:00:00Z",
+    ) -> dict[str, object]:
+        from collect import identify_companies
+
+        companies, _ = identify_companies(f"{title} {excerpt}")
+        return score_article(
+            title,
+            excerpt,
+            published_at,
+            RETRIEVED_AT,
+            category,
+            companies,
+        )
+
+    def test_high_priority_investment_and_capacity_announcement(self) -> None:
+        result = self._score(
+            "NVIDIA commits $10 billion to build a 5 GW AI data center campus",
+            "Investment expands AI compute capacity for cloud infrastructure.",
+            "data_centers",
+        )
+        self.assertEqual(result["relevance_score"], 100)
+        self.assertEqual(result["priority"], "high")
+        self.assertEqual(result["event_type"], "investment_or_funding")
+        self.assertGreaterEqual(len(result["relevance_reasons"]), 4)
+
+    def test_company_mention_alone_does_not_qualify_and_gaming_is_excluded(self) -> None:
+        result = self._score(
+            "NVIDIA launches a GeForce GPU for video game players",
+            "Gaming graphics news for console and esports fans.",
+            "other",
+        )
+        self.assertEqual(result["priority"], "excluded")
+        self.assertEqual(result["relevance_score"], 0)
+        self.assertIn("gaming", result["exclusion_reason"])
+        company_only = self._score(
+            "NVIDIA updates quarterly meeting schedule",
+            "A routine shareholder notice.",
+            "other",
+        )
+        self.assertEqual(company_only["relevance_score"], 0)
+        self.assertEqual(company_only["priority"], "excluded")
+
+    def test_sponsored_content_is_excluded(self) -> None:
+        result = self._score(
+            "Sponsored: NVIDIA launches AI data center accelerator",
+            "Paid promotional content covering AI compute capacity.",
+            "ai_semiconductors",
+        )
+        self.assertEqual(result["priority"], "excluded")
+        self.assertIn("sponsored", result["exclusion_reason"])
+
+    def test_outdated_content_is_excluded_and_evergreen_content_is_low(self) -> None:
+        stale = self._score(
+            "Data center investment builds compute capacity",
+            "A $2 billion facility adds cloud servers.",
+            "data_centers",
+            "2024-10-18T00:00:00Z",
+        )
+        evergreen = self._score(
+            "How to understand data centers",
+            "An evergreen guide to cloud infrastructure.",
+            "data_centers",
+        )
+        self.assertEqual(stale["priority"], "excluded")
+        self.assertIn("days", stale["exclusion_reason"])
+        self.assertEqual(evergreen["priority"], "low")
+        self.assertEqual(evergreen["relevance_score"], 40)
+
+    def test_robotics_battery_story_remains_robotics(self) -> None:
+        title = "Robotics startup unveils battery-charging humanoid fleet"
+        excerpt = "Robots use autonomous charging for warehouse deployment."
+        self.assertEqual(classify_entry(f"{title} {excerpt}"), "robotics")
+        result = self._score(title, excerpt, "robotics")
+        self.assertEqual(result["priority"], "low")
+        self.assertNotIn("energy", " ".join(result["relevance_reasons"]).lower())
+
+    def test_energy_needs_compute_infrastructure_connection(self) -> None:
+        relevant = self._score(
+            "Utility signs nuclear agreement to serve AI data center campus",
+            "New generation supports 1 GW of compute demand.",
+            "energy_power",
+        )
+        unrelated = self._score(
+            "Utility announces regional nuclear energy program",
+            "New generation capacity supports local communities.",
+            "energy_power",
+        )
+        self.assertGreaterEqual(relevant["relevance_score"], 80)
+        self.assertEqual(relevant["priority"], "high")
+        self.assertEqual(unrelated["priority"], "excluded")
+        self.assertIn("meaningful link", unrelated["exclusion_reason"])
 
 
 class DeduplicationTests(unittest.TestCase):
@@ -194,7 +310,7 @@ class CollectionFailureTests(unittest.TestCase):
             root = Path(temporary_directory)
             registry = root / "sources.json"
             output = root / "queue.json"
-            existing = {"schema_version": 1, "items": []}
+            existing = {"schema_version": 2, "items": [], "excluded_items": []}
             output.write_text(json.dumps(existing), encoding="utf-8")
             registry.write_text(json.dumps([SOURCE]), encoding="utf-8")
             with patch("collect.fetch_feed", side_effect=FeedError("offline")):
@@ -207,7 +323,7 @@ class CollectionFailureTests(unittest.TestCase):
             root = Path(temporary_directory)
             registry = root / "sources.json"
             output = root / "queue.json"
-            existing = {"schema_version": 1, "items": []}
+            existing = {"schema_version": 2, "items": [], "excluded_items": []}
             serialized = json.dumps(existing, indent=2, sort_keys=True) + "\n"
             output.write_text(serialized, encoding="utf-8")
             registry.write_text(json.dumps([SOURCE]), encoding="utf-8")
@@ -215,6 +331,29 @@ class CollectionFailureTests(unittest.TestCase):
                 changed = collect(registry, output, datetime(2026, 10, 19, tzinfo=timezone.utc))
             self.assertFalse(changed)
             self.assertEqual(output.read_text(encoding="utf-8"), serialized)
+
+    def test_excluded_items_are_archived_outside_active_review_queue(self) -> None:
+        feed = b"""<rss><channel><item>
+          <title>Gaming GPU launch for video game players</title>
+          <link>https://example.test/gaming-gpu</link>
+          <guid>gaming-1</guid>
+          <pubDate>Mon, 19 Oct 2026 10:30:00 GMT</pubDate>
+          <description>GeForce graphics for esports and console gaming.</description>
+        </item></channel></rss>"""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            registry = root / "sources.json"
+            output = root / "queue.json"
+            registry.write_text(json.dumps([SOURCE]), encoding="utf-8")
+            with patch("collect.fetch_feed", return_value=feed):
+                self.assertTrue(
+                    collect(registry, output, datetime(2026, 10, 19, 11, tzinfo=timezone.utc))
+                )
+                document = json.loads(output.read_text(encoding="utf-8"))
+                self.assertEqual(document["items"], [])
+                self.assertEqual(len(document["excluded_items"]), 1)
+                self.assertEqual(document["excluded_items"][0]["priority"], "excluded")
+                self.assertIn("gaming", document["excluded_items"][0]["exclusion_reason"])
 
     def test_new_findings_are_persisted_once_and_review_decision_is_preserved(self) -> None:
         feed = b"""<rss><channel><item>
@@ -244,7 +383,7 @@ class CollectionFailureTests(unittest.TestCase):
                 finding["reviewed_at"] = "2026-10-19T12:00:00Z"
                 output.write_text(
                     json.dumps(
-                        {"schema_version": 1, "items": [finding]},
+                        {"schema_version": 2, "items": [finding], "excluded_items": []},
                         ensure_ascii=False,
                         indent=2,
                         sort_keys=True,
