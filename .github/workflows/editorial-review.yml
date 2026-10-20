@@ -1,0 +1,110 @@
+name: Submit editorial review decision
+
+on:
+  workflow_dispatch:
+    inputs:
+      article_id:
+        description: Stable article ID from the research queue
+        required: true
+        type: string
+      decision:
+        description: Editorial action to record
+        required: true
+        type: choice
+        options:
+          - approve
+          - reject
+          - hold
+          - reconsider
+      notes:
+        description: Optional reviewer notes or rejection reason
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: editorial-review
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run offline research and review tests
+        run: python -m unittest discover -s research -p "test_*.py" -v
+
+      - name: Validate and record decision
+        env:
+          ARTICLE_ID: ${{ inputs.article_id }}
+          DECISION: ${{ inputs.decision }}
+          NOTES: ${{ inputs.notes }}
+          REVIEWER: ${{ github.actor }}
+          REQUEST_ID: ${{ github.run_id }}
+          REVIEW_BRANCH: editorial/review-${{ github.run_id }}
+        run: |
+          if git ls-remote --exit-code --heads origin "$REVIEW_BRANCH" >/dev/null 2>&1; then
+            git fetch origin "refs/heads/$REVIEW_BRANCH:refs/remotes/origin/$REVIEW_BRANCH"
+            git switch --create "$REVIEW_BRANCH" --track "origin/$REVIEW_BRANCH"
+          else
+            git switch --create "$REVIEW_BRANCH"
+          fi
+          python research/review.py submit \
+            --article-id "$ARTICLE_ID" \
+            --decision "$DECISION" \
+            --reviewer "$REVIEWER" \
+            --notes "$NOTES" \
+            --request-id "$REQUEST_ID"
+
+      - name: Open a human-reviewed pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEWER: ${{ github.actor }}
+          DECISION: ${{ inputs.decision }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          REVIEW_BRANCH: editorial/review-${{ github.run_id }}
+        run: |
+          open_pr() {
+            gh pr create \
+              --base "$DEFAULT_BRANCH" \
+              --head "$REVIEW_BRANCH" \
+              --title "Editorial review decision: $DECISION" \
+              --body "Decision submitted by @$REVIEWER through the authenticated workflow dispatch. Review the append-only decision record and merge manually when verified. This pull request does not publish research."
+          }
+          git add research/data/editorial-decisions.json
+          if git diff --cached --quiet; then
+            OPEN_PR_COUNT="$(gh pr list --head "$REVIEW_BRANCH" --state open --json number --jq 'length')"
+            if [ "$OPEN_PR_COUNT" -gt 0 ]; then
+              echo "This workflow run already has an open review pull request."
+              exit 0
+            fi
+            PR_STATE="$(gh pr view "$REVIEW_BRANCH" --json state --jq '.state' 2>/dev/null || true)"
+            if [ "$PR_STATE" = "MERGED" ]; then
+              echo "This workflow run was already merged."
+              exit 0
+            fi
+            if [ "$PR_STATE" = "CLOSED" ]; then
+              echo "::error::The existing review pull request is closed. Reopen it manually before retrying."
+              exit 1
+            fi
+            open_pr
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+            -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "Record editorial review decision"
+          git push --set-upstream origin "$REVIEW_BRANCH"
+          open_pr
