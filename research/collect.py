@@ -38,7 +38,7 @@ CATEGORY_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     (
         "robotics",
         (
-            r"\b(?:robot(?:ics)?|humanoid|cobot|industrial automation|robotic arm|physical AI)\b",
+            r"\b(?:robot(?:ics)?|humanoid|cobot|industrial automation|industrial AI|robotic arm|physical AI|automation deployment)\b",
         ),
     ),
     (
@@ -46,7 +46,7 @@ CATEGORY_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
         (
             r"\bAI chips?\b",
             r"\bsemiconduct(?:or|ors)\b",
-            r"\b(?:GPUs?|accelerators?|foundr(?:y|ies)|wafers?|HBM|memory)\b",
+            r"\b(?:GPUs?|accelerators?|inference|rack[- ]scale compute|foundr(?:y|ies)|wafers?|HBM|memory)\b",
             r"\badvanced packaging\b",
             r"\bAI compute\b",
         ),
@@ -382,8 +382,10 @@ def score_article(
     topic_patterns = config["topic_patterns"].get(category, [])
     topic_match = bool(topic_patterns) and _has_match(text, topic_patterns)
     compute_match = _has_match(text, config["patterns"]["compute_link"])
-    gaming_without_infrastructure = (
-        _has_match(text, config["patterns"]["gaming"]) and not compute_match
+    consumer_gaming_without_infrastructure = (
+        _has_match(text, config["patterns"]["gaming"])
+        and not topic_match
+        and not compute_match
     )
     sponsored = _has_match(text, config["patterns"]["sponsorship"])
     evergreen = _has_match(text, config["patterns"]["evergreen"])
@@ -401,7 +403,7 @@ def score_article(
         exclusion_reason = f"Published more than {config['stale_after_days']} days before collection."
     elif sponsored:
         exclusion_reason = "Marked as sponsored or promotional content."
-    elif gaming_without_infrastructure:
+    elif consumer_gaming_without_infrastructure:
         exclusion_reason = "Consumer gaming coverage without a clear AI infrastructure connection."
     elif category == "energy_power" and not compute_match:
         exclusion_reason = "Energy coverage lacks a meaningful link to AI compute infrastructure."
