@@ -3,15 +3,13 @@
     "id": "nvidia-newsroom",
     "publisher": "NVIDIA Newsroom",
     "url": "https://nvidianews.nvidia.com/rss.xml",
-    "source_type": "official_company_newsroom",
-    "fallback_category": "ai_semiconductors"
+    "source_type": "official_company_newsroom"
   },
   {
     "id": "amd-investor-relations",
     "publisher": "Advanced Micro Devices, Inc. (AMD)",
     "url": "https://ir.amd.com/news-events/press-releases/rss",
     "source_type": "official_investor_relations",
-    "fallback_category": "ai_semiconductors",
     "company_tickers": ["AMD"]
   },
   {
@@ -19,22 +17,19 @@
     "publisher": "Equinix, Inc. (EQIX)",
     "url": "https://investor.equinix.com/news-events/press-releases/rss",
     "source_type": "official_investor_relations",
-    "fallback_category": "data_centers",
     "company_tickers": ["EQIX"]
   },
   {
     "id": "department-of-energy",
     "publisher": "U.S. Department of Energy",
     "url": "https://www.energy.gov/rss.xml",
-    "source_type": "government",
-    "fallback_category": "energy_power"
+    "source_type": "government"
   },
   {
     "id": "eia-today-in-energy",
     "publisher": "U.S. Energy Information Administration",
     "url": "https://www.eia.gov/rss/todayinenergy.xml",
-    "source_type": "government",
-    "fallback_category": "energy_power"
+    "source_type": "government"
   },
   {
     "id": "data-center-dynamics",
@@ -46,7 +41,6 @@
     "id": "the-robot-report",
     "publisher": "The Robot Report",
     "url": "https://www.therobotreport.com/feed/",
-    "source_type": "publisher",
-    "fallback_category": "robotics"
+    "source_type": "publisher"
   }
 ]
