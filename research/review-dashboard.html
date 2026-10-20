@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101310">
+  <title>Editorial review — Infra Intelligence</title>
+  <style>
+    :root{color-scheme:dark;--ink:#101310;--raised:#151a16;--soft:#1a201b;--rule:#303832;--rule-soft:#252d27;--text:#e3e8de;--muted:#a3ada1;--quiet:#828d81;--accent:#c2e879;--green:#8eae85;--amber:#d9ae70;--red:#d18c79;--ui:"Segoe UI","Helvetica Neue",Arial,sans-serif;--mono:"Cascadia Code","SFMono-Regular",Consolas,monospace;font-family:var(--ui);background:var(--ink);color:var(--text);font-synthesis:none;text-rendering:optimizeLegibility}
+    *{box-sizing:border-box}body{margin:0;min-width:320px;background:var(--ink);font-size:14px;line-height:1.5}button,input,select,textarea{font:inherit;color:inherit}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .shell{max-width:1640px;margin:auto;min-height:100vh}.top{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;border-bottom:1px solid var(--rule-soft);background:#111511}.brand{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:700;letter-spacing:.14em}.mark{height:24px;display:flex;align-items:end;gap:3px}.mark i{display:block;width:5px;background:var(--accent)}.mark i:nth-child(1){height:11px;opacity:.55}.mark i:nth-child(2){height:18px;opacity:.78}.mark i:nth-child(3){height:24px}.brand small{display:block;color:var(--muted);font:8px var(--mono);letter-spacing:.15em}.local{font:8px var(--mono);letter-spacing:.1em;color:var(--muted)}.local i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:8px}
+    main{padding:37px 34px 48px}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}.intro h1{margin:0;font-size:clamp(28px,3vw,42px);font-weight:550;letter-spacing:-.045em;line-height:1.1}.intro h1 span{color:var(--accent);font-weight:450}.intro p{margin:9px 0 0;max-width:66ch;color:var(--muted);font-size:12px}.mode-note{font:8px/1.6 var(--mono);color:var(--quiet);text-align:right;max-width:230px}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:24px}.stat{padding:13px 18px 14px 0}.stat+.stat{padding-left:18px;border-left:1px solid var(--rule-soft)}.stat label{display:block;color:var(--quiet);font:8px var(--mono);letter-spacing:.11em;text-transform:uppercase}.stat strong{display:inline-block;margin-top:4px;font:25px/1.1 var(--mono);letter-spacing:-.05em}.stat small{margin-left:8px;color:var(--muted);font-size:9px}
+    .filters{display:grid;grid-template-columns:minmax(220px,1.6fr) repeat(5,minmax(125px,1fr));gap:8px;align-items:end;padding-bottom:17px;border-bottom:1px solid var(--rule)}.field label{display:block;margin:0 0 5px;color:var(--quiet);font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase}.field input,.field select,.notes{width:100%;height:38px;padding:0 10px;border:1px solid var(--rule);border-radius:0;background:#131813;font-size:10px}.field input::placeholder{color:#9aa597}.field input:focus,.field select:focus,.notes:focus{border-color:#71865b;outline:0}
+    .workspace{display:grid;grid-template-columns:minmax(370px,.94fr) minmax(0,1.46fr);min-height:540px;border-bottom:1px solid var(--rule)}.inbox{min-width:0;padding:19px 19px 24px 0;border-right:1px solid var(--rule)}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 11px}.section-head h2{margin:0;font-size:16px;font-weight:540;letter-spacing:-.025em}.section-head span{font:8px var(--mono);color:var(--quiet)}.list{display:grid}.article{display:grid;grid-template-columns:1fr auto;gap:8px 12px;padding:13px 10px;border-top:1px solid var(--rule-soft);text-align:left;background:transparent;border-right:0;border-bottom:0;border-left:0;cursor:pointer}.article:hover{background:#171d17}.article[aria-current=true]{background:#1b221b;box-shadow:inset 2px 0 var(--accent)}.article-title{grid-column:1/-1;color:var(--text);font-size:12px;font-weight:540;line-height:1.42}.article-meta{color:var(--muted);font-size:9px;line-height:1.5}.article-score{color:var(--accent);font:10px var(--mono);white-space:nowrap}.badges{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}.badge{display:inline-flex;align-items:center;min-height:19px;padding:2px 6px;border:1px solid #394236;color:#bdc8b7;font:8px var(--mono);text-transform:uppercase;letter-spacing:.035em}.badge.high{border-color:#65523d;color:#e5c78e}.badge.medium{border-color:#4d5942;color:#c5d49b}.badge.low{border-color:#39443a;color:#b3c0ad}.badge.approved{border-color:#435a3d;color:var(--accent)}.badge.rejected{border-color:#63443d;color:#e5a18d}.badge.on_hold{border-color:#66533a;color:#e5c78e}.badge.awaiting_review{color:var(--muted)}
+    .inspector{min-width:0;padding:20px 0 26px 25px}.detail-empty{display:flex;min-height:430px;align-items:center;justify-content:center;color:var(--muted);text-align:center}.detail-empty p{max-width:36ch}.detail-head{padding-bottom:17px;border-bottom:1px solid var(--rule)}.detail-kicker{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.detail-head h2{margin:0;font-size:clamp(20px,2.1vw,29px);font-weight:540;line-height:1.2;letter-spacing:-.035em}.detail-publisher{margin:9px 0 0;color:var(--muted);font-size:11px}.meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--rule-soft)}.meta{min-height:61px;padding:11px 12px 10px 0;border-bottom:1px solid var(--rule-soft)}.meta:nth-child(3n+2),.meta:nth-child(3n){padding-left:12px;border-left:1px solid var(--rule-soft)}.meta label{display:block;color:var(--quiet);font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase}.meta strong{display:block;margin-top:5px;color:var(--text);font-size:10px;font-weight:500;overflow-wrap:anywhere}.score-section,.excerpt-section,.history-section{padding:15px 0;border-bottom:1px solid var(--rule-soft)}.detail-section-title{margin:0 0 8px;color:var(--quiet);font:8px var(--mono);letter-spacing:.1em;text-transform:uppercase}.score-value{font:18px var(--mono);color:var(--accent)}.reasons{margin:9px 0 0;padding-left:17px;color:var(--muted);font-size:10px}.reasons li+li{margin-top:4px}.excerpt{margin:0;color:#bdc6bb;font-size:11px;line-height:1.65}.links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font:9px var(--mono)}.link-muted{color:var(--muted)}.history{display:grid;gap:0}.history-item{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 0;border-top:1px solid var(--rule-soft);font-size:9px}.history-item:first-child{border-top:0}.history-item time{font:8px var(--mono);color:var(--quiet)}.history-item p{grid-column:2;margin:0;color:var(--muted)}
+    .actions{padding:17px 0 0}.actions h3{margin:0 0 9px;font-size:12px;font-weight:540}.actions-help{margin:-2px 0 11px;color:var(--muted);font-size:9px}.notes{height:66px;resize:vertical;padding:9px;line-height:1.4}.button-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.action{min-height:34px;padding:0 13px;border:1px solid var(--rule);border-radius:0;background:#151a16;font-size:10px;cursor:pointer}.action:hover{border-color:#71865b;background:#1b221b}.action.primary{color:#17200e;border-color:var(--accent);background:var(--accent);font-weight:650}.action.primary:hover{background:#d5f39b}.action.danger{color:#e5a18d;border-color:#63443d}.action:disabled{opacity:.48;cursor:not-allowed}.message{min-height:20px;margin:8px 0 0;color:var(--muted);font-size:10px}.message.error{color:#e5a18d}.message.success{color:var(--accent)}.empty{padding:23px 0;color:var(--muted);font-size:11px}.footer{display:flex;justify-content:space-between;gap:14px;padding-top:16px;color:var(--quiet);font:8px var(--mono);letter-spacing:.07em}.noscript{margin:20px 0;padding:12px;border:1px solid #63443d;color:#e5a18d}
+    @media(max-width:1050px){main{padding-right:23px;padding-left:23px}.filters{grid-template-columns:repeat(3,minmax(0,1fr))}.workspace{grid-template-columns:minmax(300px,.85fr) minmax(0,1.2fr)}}
+    @media(max-width:720px){.top{height:52px;padding:0 16px}.local{font-size:7px}main{padding:27px 16px 35px}.intro{align-items:start;flex-direction:column;gap:10px;margin-bottom:19px}.mode-note{text-align:left;max-width:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:17px}.stat{padding:10px 8px 11px 0}.stat+.stat{padding-left:12px}.stat:nth-child(3){padding-left:0;border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--rule-soft)}.filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.field.search{grid-column:1/-1}.workspace{grid-template-columns:minmax(0,1fr);min-height:0}.inbox{padding:17px 0 15px;border-right:0;border-bottom:1px solid var(--rule)}.inspector{padding:19px 0 22px}.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.meta:nth-child(3n+2),.meta:nth-child(3n){padding-left:0;border-left:0}.meta:nth-child(even){padding-left:11px;border-left:1px solid var(--rule-soft)}.footer{flex-direction:column;gap:5px}}
+    @media(max-width:380px){.filters{grid-template-columns:1fr}.field.search{grid-column:auto}.meta-grid{grid-template-columns:1fr}.meta:nth-child(even){padding-left:0;border-left:0}.button-row{display:grid;grid-template-columns:1fr 1fr}.action{padding:0 8px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span>INFRA INTELLIGENCE<small>EDITORIAL REVIEW</small></span></div>
+      <div class="local"><i></i>LOCAL-ONLY WORKSPACE</div>
+    </header>
+    <main>
+      <section class="intro">
+        <div><h1>Research <span>review.</span></h1><p>Verify the source, inspect the deterministic triage signals, and record an editorial decision. Approval here does not publish an article.</p></div>
+        <div class="mode-note">PRIVATE LOCAL SESSION<br>Writes stay in the version-controlled decision log.</div>
+      </section>
+      <section class="stats" aria-label="Review queue totals">
+        <div class="stat"><label>Awaiting review</label><strong id="count-awaiting">—</strong><small>active articles</small></div>
+        <div class="stat"><label>High priority</label><strong id="count-high">—</strong><small>awaiting review</small></div>
+        <div class="stat"><label>Approved</label><strong id="count-approved">—</strong><small>editorial decisions</small></div>
+        <div class="stat"><label>Rejected</label><strong id="count-rejected">—</strong><small>editorial decisions</small></div>
+      </section>
+      <section class="filters" aria-label="Filter research">
+        <div class="field search"><label for="search">Search research</label><input id="search" type="search" placeholder="Headline, publisher, company, ticker, event…"></div>
+        <div class="field"><label for="category">Category</label><select id="category"><option value="all">All categories</option></select></div>
+        <div class="field"><label for="priority">Priority</label><select id="priority"><option value="all">All priorities</option><option>high</option><option>medium</option><option>low</option></select></div>
+        <div class="field"><label for="company">Company</label><select id="company"><option value="all">All companies</option></select></div>
+        <div class="field"><label for="status">Review status</label><select id="status"><option value="all">All statuses</option><option value="awaiting_review">Awaiting review</option><option value="on_hold">On hold</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div>
+        <div class="field"><label for="sort">Sort by</label><select id="sort"><option value="score_desc">Relevance: high to low</option><option value="score_asc">Relevance: low to high</option><option value="date_desc">Publication: newest first</option><option value="date_asc">Publication: oldest first</option></select></div>
+      </section>
+      <section class="workspace">
+        <div class="inbox">
+          <div class="section-head"><h2>Research inbox</h2><span id="result-count">LOADING</span></div>
+          <div id="article-list" class="list" aria-live="polite"></div>
+        </div>
+        <article id="detail" class="inspector" aria-live="polite"><div class="detail-empty"><p>Loading the research queue…</p></div></article>
+      </section>
+      <div class="footer"><span>TRIAGE IS NOT INVESTMENT ANALYSIS</span><span>NO AUTOMATIC PUBLICATION · SOURCE VERIFICATION REQUIRED</span></div>
+      <noscript><p class="noscript">Enable JavaScript in this local browser session to use the review dashboard.</p></noscript>
+    </main>
+  </div>
+  <script nonce="__REVIEW_NONCE__">
+    const reviewToken = __REVIEW_TOKEN__;
+    const categoryNames = {ai_semiconductors:"AI semiconductors",data_centers:"Data centers",energy_power:"Energy & power",robotics:"Robotics",networking:"Networking",cooling:"Cooling",other:"Other"};
+    const statusNames = {awaiting_review:"Awaiting review",on_hold:"On hold",approved:"Approved",rejected:"Rejected"};
+    const state = {items:[],selectedId:null};
+    const el = id => document.getElementById(id);
+    const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    const prettyDate = value => value ? new Date(value).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"}) : "Not provided";
+    const currentArticle = () => state.items.find(item => item.stable_id === state.selectedId);
+    function fillOptions(id, values, labelFn) {
+      const select = el(id);
+      for (const value of values) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = labelFn(value);
+        select.append(option);
+      }
+    }
+    function populateFilters() {
+      fillOptions("category",[...new Set(state.items.map(item=>item.category).filter(Boolean))].sort(),value=>categoryNames[value]||value);
+      const companies = new Set();
+      for(const item of state.items) for(const value of [...(item.mentioned_companies||[]),...(item.affected_tickers||[])]) companies.add(value);
+      fillOptions("company",[...companies].sort((a,b)=>a.localeCompare(b)),value=>value);
+    }
+    function filteredItems() {
+      const query=el("search").value.trim().toLocaleLowerCase();
+      const category=el("category").value, priority=el("priority").value, company=el("company").value, status=el("status").value;
+      const result=state.items.filter(item=>{
+        const text=[item.stable_id,item.title,item.publisher,item.category,item.event_type,item.excerpt,...(item.mentioned_companies||[]),...(item.affected_tickers||[])].join(" ").toLocaleLowerCase();
+        return (!query||text.includes(query))&&(category==="all"||item.category===category)&&(priority==="all"||item.priority===priority)&&(company==="all"||[...(item.mentioned_companies||[]),...(item.affected_tickers||[])].includes(company))&&(status==="all"||item.review_status===status);
+      });
+      const sort=el("sort").value;
+      result.sort((a,b)=>{
+        if(sort==="score_desc") return (b.relevance_score-a.relevance_score)||b.published_at.localeCompare(a.published_at);
+        if(sort==="score_asc") return (a.relevance_score-b.relevance_score)||a.published_at.localeCompare(b.published_at);
+        if(sort==="date_asc") return a.published_at.localeCompare(b.published_at)||(a.relevance_score-b.relevance_score);
+        return b.published_at.localeCompare(a.published_at)||(b.relevance_score-a.relevance_score);
+      });
+      return result;
+    }
+    function renderList() {
+      const items=filteredItems(), list=el("article-list");
+      el("result-count").textContent=`${items.length} / ${state.items.length} ARTICLES`;
+      if(state.selectedId&&!items.some(item=>item.stable_id===state.selectedId)) state.selectedId=items[0]?.stable_id||null;
+      if(!state.selectedId&&items.length) state.selectedId=items[0].stable_id;
+      list.innerHTML=items.length?items.map(item=>`<button class="article" type="button" data-id="${escapeHtml(item.stable_id)}" aria-current="${item.stable_id===state.selectedId}"><span class="article-title">${escapeHtml(item.title)}</span><span class="article-meta">${escapeHtml(item.publisher)} · ${escapeHtml(prettyDate(item.published_at))}</span><span class="article-score">${escapeHtml(item.relevance_score)} / 100</span><span class="badges"><span class="badge ${escapeHtml(item.priority)}">${escapeHtml(item.priority)}</span><span class="badge ${escapeHtml(item.review_status)}">${escapeHtml(statusNames[item.review_status]||item.review_status)}</span><span class="badge">${escapeHtml(categoryNames[item.category]||item.category)}</span></span></button>`).join(""):`<p class="empty">No research matches these filters. Clear a filter or check back after the next collection run.</p>`;
+      list.querySelectorAll("[data-id]").forEach(button=>button.addEventListener("click",()=>{state.selectedId=button.dataset.id;renderList();renderDetail();}));
+      renderDetail();
+    }
+    function renderDetail() {
+      const detail=el("detail"),item=currentArticle();
+      if(!item){detail.innerHTML='<div class="detail-empty"><p>Select an article from the inbox to inspect its source and review history.</p></div>';return;}
+      const companies=[...(item.mentioned_companies||[]),...(item.affected_tickers||[])];
+      const history=[...(item.decision_history||[])].reverse();
+      const reasons=(item.relevance_reasons||[]).length?`<ul class="reasons">${item.relevance_reasons.map(reason=>`<li>${escapeHtml(reason)}</li>`).join("")}</ul>`:"<p class=\"excerpt\">No scoring factors were recorded for this item.</p>";
+      detail.innerHTML=`<header class="detail-head"><div class="detail-kicker"><span class="badge ${escapeHtml(item.priority)}">${escapeHtml(item.priority)} priority</span><span class="badge ${escapeHtml(item.review_status)}">${escapeHtml(statusNames[item.review_status]||item.review_status)}</span><span class="badge">${escapeHtml(categoryNames[item.category]||item.category)}</span></div><h2>${escapeHtml(item.title)}</h2><p class="detail-publisher">${escapeHtml(item.publisher)} · Published ${escapeHtml(prettyDate(item.published_at))}</p><div class="links"><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noopener noreferrer">Open original article ↗</a><a class="link-muted" href="${escapeHtml(item.feed_url)}" target="_blank" rel="noopener noreferrer">Feed source ↗</a></div></header>
+        <div class="meta-grid"><div class="meta"><label>Relevance score</label><strong>${escapeHtml(item.relevance_score)} / 100</strong></div><div class="meta"><label>Event type</label><strong>${escapeHtml(item.event_type||"Not classified")}</strong></div><div class="meta"><label>Review status</label><strong>${escapeHtml(statusNames[item.review_status]||item.review_status)}</strong></div><div class="meta"><label>Companies</label><strong>${companies.length?escapeHtml([...new Set(companies)].join(", ")):"Not identified"}</strong></div><div class="meta"><label>Tickers</label><strong>${item.affected_tickers?.length?escapeHtml(item.affected_tickers.join(", ")):"Not identified"}</strong></div><div class="meta"><label>Category</label><strong>${escapeHtml(categoryNames[item.category]||item.category)}</strong></div><div class="meta"><label>First collected</label><strong>${escapeHtml(prettyDate(item.retrieved_at))}</strong></div><div class="meta"><label>Stable article ID</label><strong>${escapeHtml(item.stable_id)}</strong></div><div class="meta"><label>Canonical URL</label><strong><a href="${escapeHtml(item.canonical_url||item.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.canonical_url||"Not provided")} ↗</a></strong></div><div class="meta"><label>Source ID</label><strong>${escapeHtml(item.source_id||"Not provided")}</strong></div>${item.reviewed_by?`<div class="meta"><label>Legacy reviewer</label><strong>${escapeHtml(item.reviewed_by)}</strong></div>`:""}${item.reviewed_at?`<div class="meta"><label>Legacy review time</label><strong>${escapeHtml(prettyDate(item.reviewed_at))}</strong></div>`:""}</div>
+        <section class="score-section"><h3 class="detail-section-title">Deterministic scoring factors</h3><span class="score-value">${escapeHtml(item.relevance_score)}<small> / 100</small></span>${reasons}${item.exclusion_reason?`<p class="excerpt">Exclusion: ${escapeHtml(item.exclusion_reason)}</p>`:""}</section>
+        <section class="excerpt-section"><h3 class="detail-section-title">Feed excerpt · not an AI summary</h3><p class="excerpt">${escapeHtml(item.excerpt||"No excerpt was provided by the feed.")}</p></section>
+        <section class="history-section"><h3 class="detail-section-title">Editorial history · ${history.length} decision${history.length===1?"":"s"}</h3><div class="history">${history.length?history.map(record=>`<div class="history-item"><span class="badge ${escapeHtml(record.status)}">${record.source==="legacy_queue"?"Legacy: ":""}${escapeHtml(record.decision)}</span><time>${escapeHtml(prettyDate(record.timestamp))} · ${escapeHtml(record.reviewer)}</time>${record.notes?`<p>${escapeHtml(record.notes)}</p>`:""}</div>`).join(""):'<p class="excerpt">No editorial decisions recorded.</p>'}</div></section>
+        <section class="actions"><h3>Record an editorial decision</h3><p class="actions-help">Your identity comes from local <code>git config user.name</code>. Decisions are saved to the separate audit log; nothing is published.</p><label class="sr-only" for="notes">Optional reviewer notes</label><textarea id="notes" class="notes" maxlength="2000" placeholder="Optional reviewer notes or rejection reason"></textarea><div class="button-row"><button class="action primary" data-decision="approve">Approve</button><button class="action" data-decision="hold">Hold</button><button class="action danger" data-decision="reject">Reject</button><button class="action" data-decision="reconsider" ${item.review_status==="awaiting_review"?"disabled title=\"This article is already awaiting review\"":""}>Reconsider</button></div><p id="action-message" class="message" role="status"></p></section>`;
+      detail.querySelectorAll("[data-decision]").forEach(button=>button.addEventListener("click",()=>submitDecision(button)));
+    }
+    async function submitDecision(button) {
+      const item=currentArticle(),message=el("action-message"),decision=button.dataset.decision;
+      if(!item)return;
+      button.disabled=true;message.className="message";message.textContent="Saving decision…";
+      try{
+        const response=await fetch("/api/decisions",{method:"POST",headers:{"Content-Type":"application/json","X-Review-Token":reviewToken},body:JSON.stringify({article_id:item.stable_id,decision,notes:el("notes").value})});
+        const result=await response.json();
+        if(!response.ok)throw new Error(result.error||"The decision could not be saved.");
+        await loadDashboard();
+        const current=el("action-message");current.className="message success";current.textContent=`${statusNames[state.items.find(entry=>entry.stable_id===item.stable_id)?.review_status]||decision} decision saved for ${result.reviewer}.`;
+      }catch(error){message.className="message error";message.textContent=error.message;}
+      finally{if(button.isConnected)button.disabled=false;}
+    }
+    async function loadDashboard() {
+      const response=await fetch("/api/dashboard",{headers:{"X-Review-Token":reviewToken}});
+      const payload=await response.json();
+      if(!response.ok)throw new Error(payload.error||"The research queue could not be loaded.");
+      state.items=payload.items||[];
+      el("count-awaiting").textContent=payload.counts.awaiting_review;
+      el("count-high").textContent=payload.counts.high_priority;
+      el("count-approved").textContent=payload.counts.approved;
+      el("count-rejected").textContent=payload.counts.rejected;
+      populateFilters();renderList();
+    }
+    for(const id of ["search","category","priority","company","status","sort"])el(id).addEventListener(id==="search"?"input":"change",renderList);
+    loadDashboard().catch(error=>{el("result-count").textContent="ERROR";el("article-list").innerHTML=`<p class="empty">${escapeHtml(error.message)} Check the local server and queue JSON, then reload this page.</p>`;});
+  </script>
+</body>
+</html>

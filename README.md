@@ -78,10 +78,22 @@ The score is a rules-based triage signal, not financial analysis. It does not in
 
 ### Human review and approval
 
-When the queue changes, the workflow opens or updates a **draft pull request** on `automation/research-queue`. The pull request is the review gate; there is no admin route, automatic merge, or public-page integration. Only eligible items appear in the active review queue; excluded records remain separately auditable. Review each source article and verify its title, excerpt, date, category, relevance reasons, and any ticker. To record a decision, edit that entry in the JSON queue (`review_status`: `approved` or `rejected`) and add `reviewed_by` and `reviewed_at` before merging. New entries are always marked `unreviewed`; an existing review decision is preserved when the collector sees the same item again.
+The static Cloudflare Pages site does not host a review route or write API. Run the local-only editorial dashboard from the repository root:
+
+```sh
+python research/review_server.py
+```
+
+It binds only to `127.0.0.1`, requires a matching local origin and per-session CSRF token for writes, and uses the configured `git config user.name` as the reviewer identity. Decisions are appended to the separate, version-controlled `research/data/editorial-decisions.json`; the dashboard never edits the generated queue and approval does not publish an article. Commit and push the reviewed decision log through your normal authenticated Git workflow.
+
+For a GitHub-hosted review request, open **Actions → Submit editorial review decision → Run workflow**. Supply the stable article ID, choose approve, reject, hold, or reconsider, and optionally add notes. GitHub restricts manual dispatch to authorized repository users; the workflow uses its short-lived `GITHUB_TOKEN` to create a branch and a non-draft pull request. Verify the article and audit entry, then merge the PR manually. The workflow does not publish research or automatically merge.
+
+The inbox includes only eligible active queue items; excluded records remain in the collector's audit archive and cannot be approved by the workflow. It supports text search, category/priority/company/status filters, relevance/date sorting, full available article metadata, recorded scoring factors, and decision history. Reconsidering an approved, rejected, or held item returns it to awaiting review while preserving prior decisions. Repeated workflow runs with the same run ID are idempotent.
+
+The local dashboard is intentionally unavailable in the public static build. It writes only on the machine where it is running; GitHub workflow submissions are the authenticated route for version-controlled PRs. Each dispatch creates a separate PR; overlapping unmerged decision PRs can conflict in the shared JSON file and must be resolved by a human. Article approval remains editorial metadata only until a separately approved publication phase.
 
 ### Data shape and limitations
 
-Each finding includes a stable feed ID, canonical article URL, title, publisher, article `source_url`, configured RSS/Atom `feed_url`, publication and retrieval timestamps in UTC, one category (or `other`), ticker candidates, mentioned company names, a short text excerpt from the feed, relevance metadata, and `review_status`. When no reliable source excerpt is present, the title is used.
+Each finding includes a stable feed ID, canonical article URL, title, publisher, article `source_url`, configured RSS/Atom `feed_url`, publication and retrieval timestamps in UTC, one category (or `other`), ticker candidates, mentioned company names, a short text excerpt from the feed, relevance metadata, and a compatibility `review_status` field. Editorial decisions and their audit trail live separately in `research/data/editorial-decisions.json`. When no reliable source excerpt is present, the title is used.
 
 This is feed collection and deterministic triage, **not AI-generated research**. Entries without a valid article URL, title, or publication time are skipped with a log message; unrelated entries are instead retained as excluded records. Sponsorship and staleness detection rely on feed text and publication dates and can miss undisclosed promotions or incorrectly dated articles. Sources can omit context, republish links, or provide inaccurate metadata. Partial source outages are reported in the job log; any resulting queue change must be checked for source coverage before approval. The queue is version-controlled research intake, not live market data or an investment recommendation. No API keys, paid APIs, or additional hosted services are used.

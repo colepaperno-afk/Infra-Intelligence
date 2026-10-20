@@ -44,7 +44,7 @@ jobs:
           body: |
             Automated collection from the curated public feeds in `research/sources.json`.
 
-            Eligible entries are sorted by deterministic relevance score. Excluded entries are retained separately with an exclusion reason. New entries remain `unreviewed` and are not displayed on public-facing pages. Verify each source article, excerpt, category, score reasons, company/ticker metadata, and publication time before updating a finding's `review_status` and merging this pull request.
+            Eligible entries are sorted by deterministic relevance score. Excluded entries are retained separately with an exclusion reason. New entries remain unreviewed and are not displayed on public-facing pages. Verify each source article, excerpt, category, score reasons, company/ticker metadata, and publication time. Editorial decisions are stored separately in `research/data/editorial-decisions.json` and submitted through the authenticated **Submit editorial review decision** workflow; do not edit review status in the generated queue.
 
             Collection is rules-based feed triage only; no LLM analysis, investment recommendation, live financial data, or automatic publication is produced.
           draft: true
