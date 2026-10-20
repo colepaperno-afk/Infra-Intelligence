@@ -239,6 +239,82 @@ class RelevanceScoringTests(unittest.TestCase):
         self.assertEqual(unrelated["priority"], "excluded")
         self.assertIn("meaningful link", unrelated["exclusion_reason"])
 
+    def test_misclassified_compute_partnerships_and_nuclear_development(self) -> None:
+        examples = (
+            (
+                "AMD and Anthropic partner to deploy up to 2 GW of AI GPUs",
+                "The agreement will support large-scale AI compute capacity.",
+                "ai_semiconductors",
+                "high",
+            ),
+            (
+                "Equinix and NVIDIA partner on enterprise AI inference",
+                "The partnership brings inference infrastructure to enterprise customers.",
+                "ai_semiconductors",
+                "high",
+            ),
+            (
+                "Amazon, AEP, and X-energy advance SMR development for AI infrastructure",
+                "The nuclear power project could support 2 GW of compute demand.",
+                "energy_power",
+                "high",
+            ),
+        )
+        for title, excerpt, expected_category, expected_priority in examples:
+            with self.subTest(title=title):
+                self.assertEqual(classify_entry(f"{title} {excerpt}"), expected_category)
+                result = self._score(title, excerpt, expected_category)
+                self.assertEqual(result["priority"], expected_priority)
+                self.assertGreaterEqual(result["relevance_score"], 80)
+                self.assertTrue(result["relevance_reasons"])
+                self.assertIsNone(result["exclusion_reason"])
+
+    def test_gaming_mention_does_not_exclude_industrial_ai(self) -> None:
+        title = "NVIDIA announces an industrial AI robotics development"
+        excerpt = "The manufacturing deployment is distinct from gaming products."
+        self.assertEqual(classify_entry(f"{title} {excerpt}"), "robotics")
+        result = self._score(title, excerpt, "robotics")
+        self.assertEqual(result["priority"], "low")
+        self.assertGreaterEqual(result["relevance_score"], 40)
+        self.assertIsNone(result["exclusion_reason"])
+
+    def test_unrelated_ev_and_nuclear_stories_remain_excluded(self) -> None:
+        unrelated_ev = self._score(
+            "Tesla announces a new electric vehicle model",
+            "The vehicle adds a longer range and refreshed interior.",
+            "other",
+        )
+        unrelated_nuclear = self._score(
+            "Utility announces a regional nuclear energy program",
+            "The project will support local communities and grid reliability.",
+            "energy_power",
+        )
+        self.assertEqual(unrelated_ev["priority"], "excluded")
+        self.assertEqual(unrelated_nuclear["priority"], "excluded")
+
+    def test_scoring_is_deterministic(self) -> None:
+        title = "Equinix and NVIDIA partner on enterprise AI inference"
+        excerpt = "The partnership brings inference infrastructure to enterprise customers."
+        first = self._score(title, excerpt, "ai_semiconductors")
+        for _ in range(3):
+            self.assertEqual(first, self._score(title, excerpt, "ai_semiconductors"))
+
+    def test_data_center_construction_and_grid_interconnection_match(self) -> None:
+        construction = self._score(
+            "Data-center construction begins after a 1 GW site acquisition",
+            "The new campus expands hyperscaler compute capacity.",
+            "data_centers",
+        )
+        grid = self._score(
+            "Grid interconnection agreement supports an AI compute campus expansion",
+            "The power connection supports new AI infrastructure.",
+            "energy_power",
+        )
+        self.assertGreaterEqual(construction["relevance_score"], 80)
+        self.assertEqual(construction["priority"], "high")
+        self.assertGreaterEqual(grid["relevance_score"], 60)
+        self.assertEqual(grid["priority"], "medium")
+
 
 class DeduplicationTests(unittest.TestCase):
     def _item(self, stable_id: str, url: str, date: str, **extra: object) -> dict[str, object]:
@@ -400,6 +476,31 @@ class CollectionFailureTests(unittest.TestCase):
                     )
                 )
             self.assertEqual(output.read_text(encoding="utf-8"), approved_contents)
+
+    def test_repeated_collection_keeps_one_unreviewed_finding(self) -> None:
+        feed = b"""<rss><channel><item>
+          <title>AMD and Anthropic partner to deploy 2 GW of AI GPUs</title>
+          <link>https://example.test/amd-anthropic-gpus</link>
+          <guid>amd-anthropic-1</guid>
+          <pubDate>Mon, 19 Oct 2026 10:30:00 GMT</pubDate>
+          <description>The deployment expands AI compute capacity.</description>
+        </item></channel></rss>"""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            registry = root / "sources.json"
+            output = root / "queue.json"
+            registry.write_text(json.dumps([SOURCE]), encoding="utf-8")
+            with patch("collect.fetch_feed", return_value=feed):
+                self.assertTrue(
+                    collect(registry, output, datetime(2026, 10, 19, 11, tzinfo=timezone.utc))
+                )
+                first = load_queue(output)
+                self.assertFalse(
+                    collect(registry, output, datetime(2026, 10, 19, 11, tzinfo=timezone.utc))
+                )
+            self.assertEqual(len(first), 1)
+            self.assertEqual(first[0]["review_status"], "unreviewed")
+            self.assertEqual(load_queue(output), first)
 
     def test_invalid_existing_queue_is_not_silently_discarded(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
