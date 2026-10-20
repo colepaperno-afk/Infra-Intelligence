@@ -48,7 +48,7 @@ These URLs are public feeds, not scraped pages or private endpoints. The feed re
 
 ### Schedule and manual execution
 
-`.github/workflows/research-collection.yml` runs daily at **13:17 UTC** and also supports the GitHub Actions **Run workflow** (`workflow_dispatch`) control. The job has a 15-minute timeout, runs the offline tests, then collects feeds. The workflow pins the supported `ubuntu-24.04` runner image and Node.js 24-compatible action releases. The Python collector uses only the standard library, has a 20-second request timeout, retries transient network/server failures up to two times, and limits feed responses to 5 MiB.
+`.github/workflows/research-collection.yml` runs daily at **13:17 UTC** and also supports the GitHub Actions **Run workflow** (`workflow_dispatch`) control. The job has a 15-minute timeout, runs the offline tests, then collects feeds. When the queue changes, it opens or updates the existing **draft** pull request on `automation/research-queue`; that remains the human review gate for collected research and is not automatically merged. The workflow pins the supported `ubuntu-24.04` runner image and Node.js 24-compatible action releases. The Python collector uses only the standard library, has a 20-second request timeout, retries transient network/server failures up to two times, and limits feed responses to 5 MiB.
 
 The workflow uses GitHub-hosted runners and the repository's included Actions allowance; review the repository's GitHub billing quota to keep usage within the $0 budget. It uses the built-in `GITHUB_TOKEN`, not a personal access token or API key. Repository Actions settings must allow workflows to create pull requests.
 
@@ -78,19 +78,19 @@ The score is a rules-based triage signal, not financial analysis. It does not in
 
 ### Human review and approval
 
-The static Cloudflare Pages site does not host a review route or write API. Run the local-only editorial dashboard from the repository root:
+There is no publicly deployed admin route or write API in the static Cloudflare Pages site. The editorial dashboard is a separate, local-only Python app; run it from the repository root:
 
 ```sh
 python research/review_server.py
 ```
 
-It binds only to `127.0.0.1`, requires a matching local origin and per-session CSRF token for writes, and uses the configured `git config user.name` as the reviewer identity. Decisions are appended to the separate, version-controlled `research/data/editorial-decisions.json`; the dashboard never edits the generated queue and approval does not publish an article. Commit and push the reviewed decision log through your normal authenticated Git workflow.
+It binds only to `127.0.0.1`, requires a matching local origin and per-session CSRF token for reads and writes, and uses the configured `git config user.name` as the reviewer identity. Approve, reject, hold, and reconsider actions append timestamped decisions and optional notes to the separate, version-controlled `research/data/editorial-decisions.json`. The dashboard never edits the generated queue; decisions remain after a page refresh because the inbox reloads the separate JSON decision log. The collector only reads and writes `research/data/research-queue.json`, so it cannot overwrite the editorial log. Commit and push local decisions through your normal authenticated Git workflow.
 
-For a GitHub-hosted review request, open **Actions → Submit editorial review decision → Run workflow**. Supply the stable article ID, choose approve, reject, hold, or reconsider, and optionally add notes. GitHub restricts manual dispatch to authorized repository users; the workflow uses its short-lived `GITHUB_TOKEN` to create a branch and a non-draft pull request. Verify the article and audit entry, then merge the PR manually. The workflow does not publish research or automatically merge.
+For a GitHub-hosted review request, open **Actions → Submit editorial review decision → Run workflow**. Supply the stable article ID, choose approve, reject, hold, or reconsider, and optionally add notes. GitHub restricts manual dispatch to authorized repository users; the workflow uses its short-lived `GITHUB_TOKEN` to create a branch and a pull request. Verify the article and audit entry, then merge the PR manually. These decision PRs are separate from the collector's existing draft queue PR. Neither workflow automatically merges or publishes research.
 
 The inbox includes only eligible active queue items; excluded records remain in the collector's audit archive and cannot be approved by the workflow. It supports text search, category/priority/company/status filters, relevance/date sorting, full available article metadata, recorded scoring factors, and decision history. Reconsidering an approved, rejected, or held item returns it to awaiting review while preserving prior decisions. Repeated workflow runs with the same run ID are idempotent.
 
-The local dashboard is intentionally unavailable in the public static build. It writes only on the machine where it is running; GitHub workflow submissions are the authenticated route for version-controlled PRs. Each dispatch creates a separate PR; overlapping unmerged decision PRs can conflict in the shared JSON file and must be resolved by a human. Article approval remains editorial metadata only until a separately approved publication phase.
+The local dashboard is intentionally unavailable in the public static build: the Astro build includes neither its UI nor research queue/decision data, and the local server is loopback-only. It writes only on the machine where it is running; GitHub workflow submissions are the authenticated route for version-controlled PRs. Each dispatch creates a separate PR; overlapping unmerged decision PRs can conflict in the shared JSON file and must be resolved by a human. Article approval remains editorial metadata only until a separately approved publication phase.
 
 ### Data shape and limitations
 

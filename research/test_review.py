@@ -200,6 +200,76 @@ class EditorialDecisionTests(unittest.TestCase):
 
 
 class LocalWriteSecurityTests(unittest.TestCase):
+    def test_approve_reject_and_hold_survive_dashboard_reload(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            queue = root / "queue.json"
+            decisions = root / "decisions.json"
+            queue.write_text(
+                json.dumps(
+                    {
+                        "schema_version": 2,
+                        "items": [
+                            article("p:approve"),
+                            article("p:reject"),
+                            article("p:hold"),
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            server: ThreadingHTTPServer = create_server(
+                queue, decisions, reviewer="Refresh Tester", token="refresh-token", port=0
+            )
+            thread = Thread(target=server.serve_forever, daemon=True)
+            thread.start()
+            base_url = f"http://127.0.0.1:{server.server_address[1]}"
+            expected = {
+                "p:approve": ("approve", "approved"),
+                "p:reject": ("reject", "rejected"),
+                "p:hold": ("hold", "on_hold"),
+            }
+
+            def fetch_dashboard() -> dict[str, object]:
+                request = Request(
+                    f"{base_url}/api/dashboard",
+                    headers={"X-Review-Token": "refresh-token"},
+                )
+                with urlopen(request) as response:
+                    return json.loads(response.read())
+
+            try:
+                for article_id, (decision, expected_status) in expected.items():
+                    request = Request(
+                        f"{base_url}/api/decisions",
+                        data=json.dumps({
+                            "article_id": article_id,
+                            "decision": decision,
+                            "notes": f"Verified {decision} through the dashboard.",
+                        }).encode(),
+                        headers={
+                            "Content-Type": "application/json",
+                            "Origin": base_url,
+                            "X-Review-Token": "refresh-token",
+                        },
+                    )
+                    with urlopen(request) as response:
+                        self.assertEqual(response.status, 200)
+                    # A fresh dashboard request is the same read performed after page reload.
+                    payload = fetch_dashboard()
+                    saved = next(
+                        item for item in payload["items"]
+                        if item["stable_id"] == article_id
+                    )
+                    self.assertEqual(saved["review_status"], expected_status)
+                    self.assertEqual(saved["decision_history"][-1]["decision"], decision)
+                    self.assertEqual(saved["decision_history"][-1]["reviewer"], "Refresh Tester")
+                    self.assertIn(decision, saved["decision_history"][-1]["notes"])
+            finally:
+                server.shutdown()
+                server.server_close()
+                thread.join(timeout=2)
+
     def test_local_api_requires_token_and_same_origin_for_writes(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = Path(temporary_directory)
@@ -274,6 +344,9 @@ class LocalWriteSecurityTests(unittest.TestCase):
         workflow = (repository / ".github" / "workflows" / "editorial-review.yml").read_text(
             encoding="utf-8"
         )
+        collection_workflow = (
+            repository / ".github" / "workflows" / "research-collection.yml"
+        ).read_text(encoding="utf-8")
         dashboard = (repository / "research" / "review-dashboard.html").read_text(
             encoding="utf-8"
         )
@@ -284,6 +357,9 @@ class LocalWriteSecurityTests(unittest.TestCase):
         self.assertIn("GH_TOKEN: ${{ github.token }}", workflow)
         self.assertNotIn("GITHUB_TOKEN", dashboard)
         self.assertNotIn("GH_TOKEN", dashboard)
+        self.assertIn("draft: true", collection_workflow)
+        self.assertIn("merge manually", workflow)
+        self.assertNotIn("gh pr merge", workflow)
 
 
 if __name__ == "__main__":
