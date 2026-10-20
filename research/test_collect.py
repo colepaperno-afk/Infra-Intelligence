@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from html import escape
 from pathlib import Path
 import tempfile
 import unittest
@@ -315,6 +316,77 @@ class RelevanceScoringTests(unittest.TestCase):
         self.assertGreaterEqual(grid["relevance_score"], 60)
         self.assertEqual(grid["priority"], "medium")
 
+    def _real_rss_examples(self) -> dict[str, dict[str, object]]:
+        examples = {
+            "amd_anthropic": (
+                "AMD and Anthropic Announce Strategic Partnership to Deploy Up to 2 Gigawatts of AMD Instinct MI450 Series GPUs",
+                "",
+                "https://ir.amd.com/news-events/press-releases/detail/1292/amd-and-anthropic-announce-strategic-partnership-to-deploy-up-to-2-gigawatts-of-amd-instinct-mi450-series-gpus",
+            ),
+            "equinix_nvidia": (
+                "Equinix Accelerates AI Inference for Enterprises with NVIDIA and Together AI",
+                "",
+                "https://investor.equinix.com/news-events/press-releases/",
+            ),
+            "amazon_xenergy_smr": (
+                "Amazon signs agreements for innovative nuclear energy projects to address growing energy demands",
+                "directly power our data centers with carbon-free energy",
+                "https://www.aboutamazon.com/news/sustainability/amazon-nuclear-small-modular-reactor-net-carbon-zero",
+            ),
+            "nvidia_industrial_ai": (
+                "Germany Wants to Lead the World in Industrial AI: How NVIDIA Will Help",
+                "Germany’s AI roadmap, and in particular, the industrial applications of AI.",
+                "https://blogs.nvidia.com/blog/germany-wants-to-lead-the-world-in-industrial-ai-how-nvidia-will-help/",
+            ),
+        }
+        items = []
+        for index, (key, (title, excerpt, url)) in enumerate(examples.items(), start=1):
+            description = f"<description>{escape(excerpt)}</description>" if excerpt else "<description></description>"
+            items.append(
+                f"<item><title>{escape(title)}</title><link>{escape(url)}</link>"
+                f"<guid>{key}</guid><pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>"
+                f"{description}</item>"
+            )
+        payload = f"<rss><channel>{''.join(items)}</channel></rss>".encode()
+        parsed = parse_feed(payload, SOURCE, RETRIEVED_AT)
+        return {
+            key: item
+            for key, item in zip(examples, parsed, strict=True)
+        }
+
+    def test_public_source_examples_follow_the_production_collection_path(self) -> None:
+        examples = self._real_rss_examples()
+        self.assertEqual(
+            {key: item["category"] for key, item in examples.items()},
+            {
+                "amd_anthropic": "ai_semiconductors",
+                "equinix_nvidia": "ai_semiconductors",
+                "amazon_xenergy_smr": "data_centers",
+                "nvidia_industrial_ai": "robotics",
+            },
+        )
+        self.assertTrue(all(isinstance(item["relevance_score"], int) for item in examples.values()))
+        self.assertEqual(examples["amd_anthropic"]["excerpt"], examples["amd_anthropic"]["title"])
+        self.assertEqual(
+            examples["nvidia_industrial_ai"]["excerpt"],
+            "Germany’s AI roadmap, and in particular, the industrial applications of AI.",
+        )
+
+    @unittest.expectedFailure
+    def test_actual_amd_anthropic_two_gigawatt_rss_item_is_not_excluded(self) -> None:
+        self.assertNotEqual(self._real_rss_examples()["amd_anthropic"]["priority"], "excluded")
+
+    @unittest.expectedFailure
+    def test_actual_equinix_nvidia_inference_rss_item_is_high_priority(self) -> None:
+        self.assertEqual(self._real_rss_examples()["equinix_nvidia"]["priority"], "high")
+
+    @unittest.expectedFailure
+    def test_actual_amazon_xenergy_source_item_is_high_priority(self) -> None:
+        self.assertEqual(self._real_rss_examples()["amazon_xenergy_smr"]["priority"], "high")
+
+    @unittest.expectedFailure
+    def test_actual_nvidia_industrial_ai_rss_item_is_not_excluded(self) -> None:
+        self.assertNotEqual(self._real_rss_examples()["nvidia_industrial_ai"]["priority"], "excluded")
 
 class DeduplicationTests(unittest.TestCase):
     def _item(self, stable_id: str, url: str, date: str, **extra: object) -> dict[str, object]:

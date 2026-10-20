@@ -1,0 +1,165 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import {
+  approvedArticles,
+  companySlug,
+  formatCategory,
+  formatDate,
+} from "../data/intelligence";
+
+const categories = [...new Set(approvedArticles.map((article) => article.category))].sort();
+const companies = [...new Set(approvedArticles.flatMap((article) => article.mentionedCompanies))].sort();
+---
+
+<SiteLayout
+  title="Intelligence"
+  currentPath="/intelligence/"
+  description="Human-approved AI infrastructure developments with traceable source links."
+>
+  <div class="page-content">
+    <section class="page-heading directory-heading">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> INFRASTRUCTURE / APPROVED RESEARCH</p>
+        <h1>Latest <em>intelligence.</em></h1>
+        <p class="heading-copy">Source-linked developments reviewed and explicitly approved by a human editor. Collection scores help prioritize review; they never approve an article.</p>
+      </div>
+      <div class="heading-aside">
+        <div class="asof-label">PUBLISHED RECORDS</div>
+        <div class="asof-date">{String(approvedArticles.length).padStart(2, "0")} <span>APPROVED</span></div>
+        <div class="asof-note"><span class="sample-dot"></span> EDITORIAL APPROVAL REQUIRED</div>
+      </div>
+    </section>
+
+    <section class="explorer-controls intelligence-controls" aria-label="Intelligence filters">
+      <label class="search-field">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="sr-only">Search approved developments</span>
+        <input id="intelligence-search" type="search" placeholder="Search headline, publisher, company, or excerpt" autocomplete="off" />
+        <kbd>SEARCH</kbd>
+      </label>
+      <label class="select-field">
+        <span class="sr-only">Filter by infrastructure category</span>
+        <select id="category-filter">
+          <option value="">All categories</option>
+          {categories.map((category) => <option value={category}>{formatCategory(category)}</option>)}
+        </select>
+      </label>
+      <label class="select-field">
+        <span class="sr-only">Filter by mentioned company</span>
+        <select id="company-filter">
+          <option value="">All companies</option>
+          {companies.map((company) => <option value={company}>{company}</option>)}
+        </select>
+      </label>
+      <label class="select-field">
+        <span class="sr-only">Sort approved developments</span>
+        <select id="sort-order">
+          <option value="date_desc">Newest first</option>
+          <option value="date_asc">Oldest first</option>
+          <option value="score_desc">Relevance: high to low</option>
+          <option value="score_asc">Relevance: low to high</option>
+        </select>
+      </label>
+      <span class="result-count"><b id="result-count">{approvedArticles.length}</b> APPROVED STORIES</span>
+    </section>
+
+    <section class="intelligence-feed" aria-label="Approved developments">
+      <div class="intelligence-feed-heading">
+        <h2>Approved developments</h2>
+        <span>ONE RECORD PER SOURCE STORY</span>
+      </div>
+      <div id="intelligence-list" class="intelligence-list" aria-live="polite">
+        {approvedArticles.map((article) => (
+          <article
+            class="intelligence-card"
+            data-article
+            data-id={article.stableId}
+            data-category={article.category}
+            data-companies={article.mentionedCompanies.join("|")}
+            data-score={article.relevanceScore ?? -1}
+            data-date={article.publishedAt ?? ""}
+            data-search={`${article.title} ${article.publisher} ${article.category} ${article.eventType} ${article.mentionedCompanies.join(" ")} ${article.tickerCandidates.join(" ")} ${article.verifiedTickers.join(" ")} ${article.excerpt}`.toLowerCase()}
+          >
+            <div class="intel-card-meta">
+              <span class="intel-category">{formatCategory(article.category)}</span>
+              <time datetime={article.publishedAt ?? undefined}>{formatDate(article.publishedAt)}</time>
+            </div>
+            <h3><a href={`/intelligence/${article.slug}/`}>{article.title}</a></h3>
+            <p class="intel-publisher">{article.publisher}</p>
+            {article.excerpt && <p class="intel-excerpt">{article.excerpt}</p>}
+            <div class="intel-details">
+              <div>
+                <span class="intel-label">COMPANIES MENTIONED</span>
+                <div class="intel-tags">
+                  {article.mentionedCompanies.length
+                    ? article.mentionedCompanies.map((company) => (
+                      <a class="intel-tag" href={`/companies/${companySlug(company)}/`}>{company}</a>
+                    ))
+                    : <span class="intel-muted">Not identified</span>}
+                </div>
+              </div>
+              <div>
+                <span class="intel-label">TICKER MAPPINGS</span>
+                <div class="intel-tags">
+                  {article.verifiedTickers.map((ticker) => <span class="intel-tag verified">{ticker} · source-confirmed</span>)}
+                  {article.tickerCandidates.map((ticker) => <span class="intel-tag candidate">{ticker} · candidate</span>)}
+                  {!article.verifiedTickers.length && !article.tickerCandidates.length && <span class="intel-muted">Not identified</span>}
+                </div>
+              </div>
+            </div>
+            <div class="intel-card-footer">
+              <span>EVENT <b>{formatCategory(article.eventType)}</b></span>
+              <span>RELEVANCE <b>{article.relevanceScore === null ? "N/A" : `${article.relevanceScore}/100`}</b></span>
+              <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">ORIGINAL SOURCE <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p id="intelligence-empty" class="empty-results" hidden>No approved developments match these filters. Try another search or clear a filter.</p>
+      {approvedArticles.length === 0 && (
+        <p class="intelligence-empty-state">No articles have been explicitly approved for publication yet. New collection results remain private until a human editor approves them.</p>
+      )}
+    </section>
+    <p class="intelligence-disclaimer">Relevance is a deterministic triage score, not financial analysis or a recommendation. Company mentions and ticker candidates may be incomplete; source-confirmed ticker mappings are identified separately.</p>
+  </div>
+  <script>
+    const search = document.querySelector<HTMLInputElement>("#intelligence-search");
+    const category = document.querySelector<HTMLSelectElement>("#category-filter");
+    const company = document.querySelector<HTMLSelectElement>("#company-filter");
+    const sort = document.querySelector<HTMLSelectElement>("#sort-order");
+    const list = document.querySelector<HTMLElement>("#intelligence-list");
+    const count = document.querySelector<HTMLElement>("#result-count");
+    const empty = document.querySelector<HTMLElement>("#intelligence-empty");
+    const cards = [...document.querySelectorAll<HTMLElement>("[data-article]")];
+
+    function updateFeed() {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      const selectedCategory = category?.value ?? "";
+      const selectedCompany = company?.value ?? "";
+      const visible = cards.filter((card) => {
+        const companies = (card.dataset.companies ?? "").split("|");
+        return (card.dataset.search ?? "").includes(query)
+          && (!selectedCategory || card.dataset.category === selectedCategory)
+          && (!selectedCompany || companies.includes(selectedCompany));
+      });
+      const direction = sort?.value ?? "date_desc";
+      visible.sort((left, right) => {
+        if (direction.startsWith("score")) {
+          const delta = Number(left.dataset.score) - Number(right.dataset.score);
+          return direction === "score_asc" ? delta : -delta;
+        }
+        const delta = (left.dataset.date ?? "").localeCompare(right.dataset.date ?? "");
+        return direction === "date_asc" ? delta : -delta;
+      });
+      for (const card of visible) list?.append(card);
+      for (const card of cards) card.hidden = !visible.includes(card);
+      if (count) count.textContent = String(visible.length);
+      if (empty) empty.hidden = visible.length > 0;
+    }
+
+    search?.addEventListener("input", updateFeed);
+    category?.addEventListener("change", updateFeed);
+    company?.addEventListener("change", updateFeed);
+    sort?.addEventListener("change", updateFeed);
+  </script>
+</SiteLayout>

@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .wrangler/
+src/data/approved-research.generated.json
 .dev.vars
 .env
 .env.*
