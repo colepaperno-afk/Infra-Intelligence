@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "node research/export-approved-content.mjs && astro dev",
+    "build": "node research/export-approved-content.mjs && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "node research/export-approved-content.mjs && astro check",
+    "test:publish": "node --test research/test_publish.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

@@ -1,0 +1,60 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  intelligenceCompanies,
+  formatCategory,
+  formatDate,
+} from "../../data/intelligence";
+
+export function getStaticPaths() {
+  return intelligenceCompanies.map((company) => ({
+    params: { slug: company.slug },
+    props: { company },
+  }));
+}
+
+const { company } = Astro.props;
+---
+
+<SiteLayout
+  title={company.name}
+  currentPath="/companies/"
+  description={`Human-approved infrastructure developments mentioning ${company.name}.`}
+>
+  <div class="page-content">
+    <nav class="article-breadcrumb" aria-label="Breadcrumb">
+      <a href="/companies/">COMPANIES</a><span>/</span><span>{company.name.toUpperCase()}</span>
+    </nav>
+    <section class="page-heading company-intel-heading">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> COMPANY INTELLIGENCE / APPROVED MENTIONS</p>
+        <h1>{company.name}<em>.</em></h1>
+        <p class="heading-copy">Approved source developments in which this company was mentioned. Mentions and ticker candidates are feed-derived and may require verification.</p>
+      </div>
+      <div class="heading-aside">
+        <div class="asof-label">ASSOCIATED DEVELOPMENTS</div>
+        <div class="asof-date">{String(company.articles.length).padStart(2, "0")} <span>APPROVED</span></div>
+        <div class="asof-note"><span class="sample-dot"></span> SOURCE-LINKED STORIES</div>
+      </div>
+    </section>
+    <section class="company-story-list" aria-label={`Approved developments mentioning ${company.name}`}>
+      {company.articles.map((article) => (
+        <article class="company-story">
+          <div class="intel-card-meta">
+            <span class="intel-category">{formatCategory(article.category)}</span>
+            <time datetime={article.publishedAt ?? undefined}>{formatDate(article.publishedAt)}</time>
+          </div>
+          <h2><a href={`/intelligence/${article.slug}/`}>{article.title}</a></h2>
+          <p class="intel-publisher">{article.publisher}</p>
+          {article.excerpt && <p class="intel-excerpt">{article.excerpt}</p>}
+          <div class="intel-card-footer">
+            <span>EVENT <b>{formatCategory(article.eventType)}</b></span>
+            <span>RELEVANCE <b>{article.relevanceScore === null ? "N/A" : `${article.relevanceScore}/100`}</b></span>
+            <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">ORIGINAL SOURCE <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      ))}
+    </section>
+    <a class="article-back-link" href="/companies/">← Back to company directory</a>
+  </div>
+</SiteLayout>

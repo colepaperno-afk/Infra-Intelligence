@@ -1,0 +1,69 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  approvedArticles,
+  formatCategory,
+  formatDate,
+} from "../../data/intelligence";
+
+export function getStaticPaths() {
+  return approvedArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<SiteLayout
+  title="Approved article"
+  currentPath="/intelligence/"
+  description={`Approved infrastructure research from ${article.publisher}.`}
+>
+  <div class="page-content">
+    <nav class="article-breadcrumb" aria-label="Breadcrumb">
+      <a href="/intelligence/">INTELLIGENCE FEED</a><span>/</span><span>APPROVED ARTICLE</span>
+    </nav>
+    <article class="article-detail">
+      <p class="eyebrow"><span class="eyebrow-rule"></span> APPROVED SOURCE MATERIAL</p>
+      <h1>{article.title}</h1>
+      <div class="article-source">
+        <span>{article.publisher}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={article.publishedAt ?? undefined}>{formatDate(article.publishedAt)}</time>
+        <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">OPEN ORIGINAL SOURCE ↗</a>
+      </div>
+      <div class="article-facts">
+        <div><span class="intel-label">INFRASTRUCTURE CATEGORY</span><strong>{formatCategory(article.category)}</strong></div>
+        <div><span class="intel-label">EVENT TYPE</span><strong>{formatCategory(article.eventType)}</strong></div>
+        <div><span class="intel-label">RELEVANCE SCORE</span><strong>{article.relevanceScore === null ? "Not available" : `${article.relevanceScore}/100`}</strong></div>
+      </div>
+      <section class="article-metadata" aria-labelledby="company-metadata-heading">
+        <h2 id="company-metadata-heading">Company references</h2>
+        <p>Names below were identified in the feed text. Ticker candidates are heuristic and are not verified mappings.</p>
+        <dl>
+          <dt>Companies mentioned</dt>
+          <dd>{article.mentionedCompanies.length ? article.mentionedCompanies.join(", ") : "Not identified in available feed text"}</dd>
+          <dt>Ticker candidates</dt>
+          <dd>{article.tickerCandidates.length ? article.tickerCandidates.join(", ") : "None identified"}</dd>
+          <dt>Source-confirmed ticker mappings</dt>
+          <dd>{article.verifiedTickers.length ? article.verifiedTickers.join(", ") : "None provided by the source registry"}</dd>
+        </dl>
+      </section>
+      <section class="article-excerpt" aria-labelledby="excerpt-heading">
+        <h2 id="excerpt-heading">Available source excerpt</h2>
+        {article.excerpt
+          ? <p>{article.excerpt}</p>
+          : <p class="intel-muted">No excerpt was provided in the source feed.</p>}
+      </section>
+      <section class="article-provenance" aria-label="Article provenance">
+        <span>ARTICLE ID <b>{article.stableId}</b></span>
+        <span>SOURCE <b>{article.sourceId || "Not identified"}</b></span>
+        {article.feedUrl && <span>FEED <a href={article.feedUrl} target="_blank" rel="noopener noreferrer">{article.feedUrl}</a></span>}
+        {article.retrievedAt && <span>COLLECTED <b>{formatDate(article.retrievedAt)}</b></span>}
+      </section>
+      <a class="article-back-link" href="/intelligence/">← Back to approved intelligence</a>
+    </article>
+  </div>
+</SiteLayout>

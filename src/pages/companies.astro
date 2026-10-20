@@ -1,19 +1,20 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { companies, sectors } from "../data/sample";
+import { intelligenceCompanies } from "../data/intelligence";
 ---
 
 <SiteLayout
   title="Companies"
   currentPath="/companies/"
-  description="Explore fictional sample companies across the infrastructure economy."
+  description="Browse company mentions from approved research and the illustrative company universe."
 >
   <div class="page-content">
     <section class="page-heading directory-heading">
       <div>
-        <p class="eyebrow"><span class="eyebrow-rule"></span> RESEARCH UNIVERSE / SAMPLE</p>
-        <h1>Company <em>explorer.</em></h1>
-        <p class="heading-copy">A working universe of fictional entities to demonstrate sector discovery and research workflows.</p>
+        <p class="eyebrow"><span class="eyebrow-rule"></span> COMPANY INTELLIGENCE / APPROVED RESEARCH</p>
+        <h1>Company <em>intelligence.</em></h1>
+        <p class="heading-copy">Explore companies mentioned in human-approved source developments, alongside a clearly separated illustrative research universe.</p>
       </div>
       <div class="heading-aside">
         <div class="asof-label">UNIVERSE STATUS</div>
@@ -22,6 +23,36 @@ import { companies, sectors } from "../data/sample";
       </div>
     </section>
 
+    <section class="intelligence-companies" aria-labelledby="intelligence-companies-heading">
+      <div class="intelligence-feed-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span> SOURCE-LINKED / HUMAN-APPROVED</p>
+          <h2 id="intelligence-companies-heading">Companies in approved research</h2>
+        </div>
+        <span>{intelligenceCompanies.length} COMPANIES</span>
+      </div>
+      {intelligenceCompanies.length
+        ? <div class="company-intel-grid">
+          {intelligenceCompanies.map((company) => (
+            <a class="company-intel-card" href={`/companies/${company.slug}/`}>
+              <span class="intel-label">MENTIONED IN APPROVED RESEARCH</span>
+              <strong>{company.name}</strong>
+              <span>{company.articles.length} {company.articles.length === 1 ? "development" : "developments"}</span>
+              <span class="company-intel-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+        : <p class="intelligence-empty-state">No approved articles mention a company yet. New research stays private until a human editor approves it.</p>}
+    </section>
+
+    <section class="sample-company-universe" aria-labelledby="sample-companies-heading">
+      <div class="intelligence-feed-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span> ILLUSTRATIVE ONLY</p>
+          <h2 id="sample-companies-heading">Sample company universe</h2>
+        </div>
+        <span>NOT LIVE RESEARCH</span>
+      </div>
     <section class="explorer-controls" aria-label="Company filters">
       <label class="search-field">
         <span class="search-icon" aria-hidden="true">⌕</span>
@@ -66,7 +97,8 @@ import { companies, sectors } from "../data/sample";
 
     <section class="research-caveat">
       <span class="caveat-mark">i</span>
-      <div><strong>About this universe</strong><p>This explorer uses invented company names and identifiers. Research themes and signal labels are illustrative only and are not investment recommendations or representations of current market conditions.</p></div>
+      <div><strong>About this sample universe</strong><p>The records below use invented company names and identifiers. They are separate from approved research above and are not investment recommendations or representations of current market conditions.</p></div>
+    </section>
     </section>
   </div>
   <script>
