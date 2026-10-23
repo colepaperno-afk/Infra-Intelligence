@@ -21,11 +21,13 @@
       "\\bAI infrastructure\\b",
       "\\bAI data cent(?:er|re)s?\\b",
       "\\b(?:hyperscal(?:er|e)|cloud provider|data[ -]?cent(?:er|re)|server farm|compute capacity)\\b",
+      "\\bAMD\\s+Instinct\\s+MI\\d{3}\\b",
+      "(?=.*\\bAmazon\\b)(?=.*\\bX[- ]energy\\b)(?=.*\\bSMRs?\\b)",
       "\\b(?:AI|artificial intelligence|machine learning)\\b.{0,60}\\b(?:GPUs?|accelerators?|inference|rack[- ]scale compute|compute capacity)\\b",
-      "\\b(?:GPUs?|accelerators?|inference|rack[- ]scale compute|compute capacity)\\b.{0,60}\\b(?:AI|artificial intelligence|machine learning|data cent(?:er|re)s?|enterprise compute)\\b",
+      "\\b(?:GPUs?|accelerators?|inference|rack[- ]scale compute|compute capacity)\\b.{0,60}\\b(?:AI|artificial intelligence|machine learning|data[ -]?cent(?:er|re)s?|enterprise compute)\\b",
       "\\b(?:enterprise AI inference|AI inference infrastructure|rack[- ]scale compute|AI accelerator deployment)\\b",
-      "\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b.{0,60}\\b(?:data[ -]?cent(?:er|re)|AI|compute|hyperscal)\\b",
-      "\\b(?:data[ -]?cent(?:er|re)|AI|compute|hyperscal)\\b.{0,60}\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b"
+      "\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b.{0,60}\\b(?:data[ -]?cent(?:er|re)s?|AI|compute|hyperscal)\\b",
+      "\\b(?:data[ -]?cent(?:er|re)s?|AI|compute|hyperscal)\\b.{0,60}\\b(?:power|energy|electricity|grid|nuclear|utility|generation)\\b"
     ],
     "major_event": [
       "\\b(?:invest(?:s|ed|ment(?:s)?|ing)?|commit(?:s|ted|ting)?|spend(?:s|ing)?|capital expenditures?|capex|acquir(?:e|es|ed|ing)|acquisitions?|merg(?:e|er)s?|partner(?:s|ed|ship|ships)|fund(?:s|ing|ed)|raises?\\s+\\$|earnings|production capacity|manufacturing capacity|develop(?:s|ed|ing|ments?)|build(?:s|ing)?|construct(?:s|ion|ing)|expansion|orders?)\\b"
@@ -45,6 +47,9 @@
     "gaming": [
       "\\b(?:gaming|video game|esports|geforce|playstation|xbox|game console|game developers?)\\b"
     ],
+    "opinion": [
+      "\\b(?:opinion|op-ed|editorial|commentary|viewpoint)\\b"
+    ],
     "infra_specific": [
       "\\b(?:AI|artificial intelligence|machine learning|data cent(?:er|re)|hyperscal(?:er|e)|cloud computing|high-performance computing|HPC|server|foundr(?:y|ies)|wafer|HBM|advanced packaging|accelerator|robot(?:ics)?|humanoid|industrial automation|grid|nuclear|utility)\\b"
     ]
@@ -55,6 +60,7 @@
       "\\b(?:inference|GPUs?|accelerators?|rack[- ]scale compute)\\b.{0,50}\\b(?:AI|artificial intelligence|machine learning|enterprise compute)\\b",
       "\\b(?:AI|artificial intelligence|machine learning)\\b.{0,50}\\b(?:chip|semiconductor|GPU|accelerator|HBM|memory|foundr|wafer|packaging|compute)\\b",
       "\\b(?:chip|semiconductor|GPU|accelerator|HBM|memory|foundr|wafer|packaging)\\b.{0,50}\\b(?:AI|artificial intelligence|machine learning|data cent(?:er|re)|hyperscal|cloud|compute)\\b",
+      "\\bAMD\\s+Instinct\\s+MI\\d{3}\\b",
       "\\b(?:semiconductor manufacturing|foundry capacity|advanced packaging|HBM|high-bandwidth memory)\\b",
       "\\b(?:semiconductor|foundry|wafer|HBM|advanced packaging)\\b.{0,50}\\b(?:capacity|investment|production|manufactur|expansion)\\b",
       "\\b(?:capacity|investment|production|manufactur|expansion)\\b.{0,50}\\b(?:semiconductor|foundry|wafer|HBM|advanced packaging)\\b"
@@ -64,7 +70,7 @@
       "\\b(?:data[ -]?cent(?:er|re)|hyperscal(?:er|e)|compute campus)\\b.{0,60}\\b(?:construction|acquisitions?|acquir(?:e|ed|ing)|power capacity|expansion)\\b"
     ],
     "energy_power": [
-      "\\b(?:nuclear|SMR|small modular reactor|utility|utilities|grid|transmission|substation|generation capacity|power plant|power demand|energy demand|electricity demand|electricity supply|grid infrastructure|grid interconnection|power procurement|turbine|transformer)\\b"
+      "\\b(?:nuclear|SMRs?|small modular reactors?|utility|utilities|grid|transmission|substation|generation capacity|power plant|power demand|energy demand|electricity demand|electricity supply|grid infrastructure|grid interconnection|power procurement|turbine|transformer)\\b"
     ],
     "robotics": [
       "\\b(?:robot(?:ics)?|humanoid|cobot|industrial automation|industrial AI|robotic arm|physical AI|automation deployment)\\b"
@@ -90,7 +96,7 @@
     },
     {
       "type": "capacity_or_construction",
-      "patterns": ["\\b(?:production capacity|manufacturing capacity|capacity|develop(?:s|ed|ing|ments?)|build(?:s|ing)?|construct(?:s|ion|ing)|expansion|facility|campus|fab)\\b"]
+      "patterns": ["\\b(?:production capacity|manufacturing capacity|capacity|develop(?:s|ed|ing|ments?)|deploy(?:s|ed|ing|ment|ments)?|build(?:s|ing)?|construct(?:s|ion|ing)|expansion|facility|campus|fab)\\b"]
     },
     {
       "type": "earnings_or_guidance",
@@ -98,7 +104,11 @@
     },
     {
       "type": "product_or_technology",
-      "patterns": ["\\b(?:launch(?:es|ed)?|unveil(?:s|ed)?|introduc(?:es|ed)|announc(?:es|ed)|release(?:s|d)?)\\b"]
+      "patterns": ["\\b(?:launch(?:es|ed)?|unveil(?:s|ed)?|introduc(?:es|ed)|announc(?:es|ed)|release(?:s|d)?)\\b", "\\baccelerat(?:e|es|ed|ing)\\b.{0,30}\\bAI inference\\b.{0,30}\\benterprises?\\b"]
+    },
+    {
+      "type": "industrial_ai_adoption",
+      "patterns": ["\\bAI roadmap\\b.{0,80}\\bindustrial applications of AI\\b"]
     }
   ],
   "company_entities": [

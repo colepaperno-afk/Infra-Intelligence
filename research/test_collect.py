@@ -235,40 +235,17 @@ class RelevanceScoringTests(unittest.TestCase):
             "New generation capacity supports local communities.",
             "energy_power",
         )
+        plural_data_centers = self._score(
+            "Nuclear project will provide power for data centers",
+            "The utility expects to connect the project to the regional grid.",
+            "energy_power",
+        )
         self.assertGreaterEqual(relevant["relevance_score"], 80)
         self.assertEqual(relevant["priority"], "high")
         self.assertEqual(unrelated["priority"], "excluded")
         self.assertIn("meaningful link", unrelated["exclusion_reason"])
-
-    def test_misclassified_compute_partnerships_and_nuclear_development(self) -> None:
-        examples = (
-            (
-                "AMD and Anthropic partner to deploy up to 2 GW of AI GPUs",
-                "The agreement will support large-scale AI compute capacity.",
-                "ai_semiconductors",
-                "high",
-            ),
-            (
-                "Equinix and NVIDIA partner on enterprise AI inference",
-                "The partnership brings inference infrastructure to enterprise customers.",
-                "ai_semiconductors",
-                "high",
-            ),
-            (
-                "Amazon, AEP, and X-energy advance SMR development for AI infrastructure",
-                "The nuclear power project could support 2 GW of compute demand.",
-                "energy_power",
-                "high",
-            ),
-        )
-        for title, excerpt, expected_category, expected_priority in examples:
-            with self.subTest(title=title):
-                self.assertEqual(classify_entry(f"{title} {excerpt}"), expected_category)
-                result = self._score(title, excerpt, expected_category)
-                self.assertEqual(result["priority"], expected_priority)
-                self.assertGreaterEqual(result["relevance_score"], 80)
-                self.assertTrue(result["relevance_reasons"])
-                self.assertIsNone(result["exclusion_reason"])
+        self.assertEqual(plural_data_centers["relevance_score"], 50)
+        self.assertEqual(plural_data_centers["priority"], "low")
 
     def test_gaming_mention_does_not_exclude_industrial_ai(self) -> None:
         title = "NVIDIA announces an industrial AI robotics development"
@@ -285,13 +262,25 @@ class RelevanceScoringTests(unittest.TestCase):
             "The vehicle adds a longer range and refreshed interior.",
             "other",
         )
+        consumer_gpu = self._score(
+            "AMD launches Radeon GPUs for gaming",
+            "The graphics cards target video game and esports players.",
+            "other",
+        )
         unrelated_nuclear = self._score(
             "Utility announces a regional nuclear energy program",
             "The project will support local communities and grid reliability.",
             "energy_power",
         )
+        unrelated_smr = self._score(
+            "Utility and X-energy study small modular reactors for the regional grid",
+            "The nuclear energy project would serve local communities.",
+            "energy_power",
+        )
         self.assertEqual(unrelated_ev["priority"], "excluded")
+        self.assertEqual(consumer_gpu["priority"], "excluded")
         self.assertEqual(unrelated_nuclear["priority"], "excluded")
+        self.assertEqual(unrelated_smr["priority"], "excluded")
 
     def test_scoring_is_deterministic(self) -> None:
         title = "Equinix and NVIDIA partner on enterprise AI inference"
@@ -316,77 +305,199 @@ class RelevanceScoringTests(unittest.TestCase):
         self.assertGreaterEqual(grid["relevance_score"], 60)
         self.assertEqual(grid["priority"], "medium")
 
-    def _real_rss_examples(self) -> dict[str, dict[str, object]]:
+    def _real_rss_feeds(self) -> dict[str, tuple[dict[str, object], bytes]]:
         examples = {
             "amd_anthropic": (
+                {
+                    "id": "amd-investor-relations",
+                    "publisher": "Advanced Micro Devices, Inc. (AMD)",
+                    "url": "https://ir.amd.com/news-events/press-releases/rss",
+                    "source_type": "official_investor_relations",
+                    "company_tickers": ["AMD"],
+                },
                 "AMD and Anthropic Announce Strategic Partnership to Deploy Up to 2 Gigawatts of AMD Instinct MI450 Series GPUs",
                 "",
                 "https://ir.amd.com/news-events/press-releases/detail/1292/amd-and-anthropic-announce-strategic-partnership-to-deploy-up-to-2-gigawatts-of-amd-instinct-mi450-series-gpus",
             ),
             "equinix_nvidia": (
+                {
+                    "id": "equinix-investor-relations",
+                    "publisher": "Equinix, Inc. (EQIX)",
+                    "url": "https://investor.equinix.com/news-events/press-releases/rss",
+                    "source_type": "official_investor_relations",
+                    "company_tickers": ["EQIX"],
+                },
                 "Equinix Accelerates AI Inference for Enterprises with NVIDIA and Together AI",
                 "",
-                "https://investor.equinix.com/news-events/press-releases/",
+                "https://investor.equinix.com/news-events/press-releases/detail/1122/equinix-accelerates-ai-inference-for-enterprises-with",
             ),
             "amazon_xenergy_smr": (
-                "Amazon signs agreements for innovative nuclear energy projects to address growing energy demands",
-                "directly power our data centers with carbon-free energy",
-                "https://www.aboutamazon.com/news/sustainability/amazon-nuclear-small-modular-reactor-net-carbon-zero",
+                {
+                    "id": "data-center-dynamics",
+                    "publisher": "Data Center Dynamics",
+                    "url": "https://www.datacenterdynamics.com/en/rss/",
+                    "source_type": "publisher",
+                },
+                "Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana",
+                "Second major deal signed by Amazon and X-energy with a regional utility",
+                "https://www.datacenterdynamics.com/en/news/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana/",
             ),
             "nvidia_industrial_ai": (
+                {
+                    "id": "nvidia-newsroom",
+                    "publisher": "NVIDIA Newsroom",
+                    "url": "https://nvidianews.nvidia.com/rss.xml",
+                    "source_type": "official_company_newsroom",
+                },
                 "Germany Wants to Lead the World in Industrial AI: How NVIDIA Will Help",
-                "Germany’s AI roadmap, and in particular, the industrial applications of AI.",
+                "In the cavernous hall of Kraftwerk, a former power station in Berlin, German Chancellor Friedrich Merz and NVIDIA founder and CEO Jensen Huang sat down to discuss Germany’s AI roadmap, and in particular, the industrial applications of AI. Huang opened by tracing NVIDIA’s longstanding relationship with German industry, beginning with gaming systems, workstations and automotive […]",
                 "https://blogs.nvidia.com/blog/germany-wants-to-lead-the-world-in-industrial-ai-how-nvidia-will-help/",
             ),
         }
-        items = []
-        for index, (key, (title, excerpt, url)) in enumerate(examples.items(), start=1):
+        feeds = {}
+        for key, (source, title, excerpt, url) in examples.items():
             description = f"<description>{escape(excerpt)}</description>" if excerpt else "<description></description>"
-            items.append(
-                f"<item><title>{escape(title)}</title><link>{escape(url)}</link>"
-                f"<guid>{key}</guid><pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>"
-                f"{description}</item>"
-            )
-        payload = f"<rss><channel>{''.join(items)}</channel></rss>".encode()
-        parsed = parse_feed(payload, SOURCE, RETRIEVED_AT)
+            payload = (
+                f"<rss><channel><item><title>{escape(title)}</title>"
+                f"<link>{escape(url)}</link><guid>{escape(url)}</guid>"
+                f"<pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>"
+                f"{description}</item></channel></rss>"
+            ).encode()
+            feeds[key] = (source, payload)
+        return feeds
+
+    def _real_rss_examples(self) -> dict[str, dict[str, object]]:
         return {
-            key: item
-            for key, item in zip(examples, parsed, strict=True)
+            key: parse_feed(payload, source, RETRIEVED_AT)[0]
+            for key, (source, payload) in self._real_rss_feeds().items()
         }
 
-    def test_public_source_examples_follow_the_production_collection_path(self) -> None:
+    def test_actual_rss_titles_and_descriptions_score_expected_cases(self) -> None:
         examples = self._real_rss_examples()
         self.assertEqual(
             {key: item["category"] for key, item in examples.items()},
             {
                 "amd_anthropic": "ai_semiconductors",
                 "equinix_nvidia": "ai_semiconductors",
-                "amazon_xenergy_smr": "data_centers",
+                "amazon_xenergy_smr": "energy_power",
                 "nvidia_industrial_ai": "robotics",
             },
         )
-        self.assertTrue(all(isinstance(item["relevance_score"], int) for item in examples.values()))
-        self.assertEqual(examples["amd_anthropic"]["excerpt"], examples["amd_anthropic"]["title"])
+        expected = {
+            "amd_anthropic": (100, "high", "acquisition_or_partnership"),
+            "equinix_nvidia": (85, "high", "product_or_technology"),
+            "amazon_xenergy_smr": (95, "high", "capacity_or_construction"),
+            "nvidia_industrial_ai": (58, "low", "industrial_ai_adoption"),
+        }
+        for key, (score, priority, event_type) in expected.items():
+            with self.subTest(article=key):
+                item = examples[key]
+                self.assertEqual(item["relevance_score"], score)
+                self.assertEqual(item["priority"], priority)
+                self.assertEqual(item["event_type"], event_type)
+                self.assertIsNone(item["exclusion_reason"])
+                self.assertEqual(
+                    item["stable_id"],
+                    f"{item['source_id']}:{item['source_url']}",
+                )
         self.assertEqual(
+            examples["amd_anthropic"]["excerpt"],
+            examples["amd_anthropic"]["title"],
+        )
+        self.assertEqual(
+            examples["equinix_nvidia"]["excerpt"],
+            examples["equinix_nvidia"]["title"],
+        )
+        self.assertEqual(
+            examples["amazon_xenergy_smr"]["excerpt"],
+            "Second major deal signed by Amazon and X-energy with a regional utility",
+        )
+        self.assertIn(
+            "Germany’s AI roadmap",
             examples["nvidia_industrial_ai"]["excerpt"],
-            "Germany’s AI roadmap, and in particular, the industrial applications of AI.",
         )
 
-    @unittest.expectedFailure
-    def test_actual_amd_anthropic_two_gigawatt_rss_item_is_not_excluded(self) -> None:
-        self.assertNotEqual(self._real_rss_examples()["amd_anthropic"]["priority"], "excluded")
+    def test_actual_rss_cases_are_saved_in_generated_queue(self) -> None:
+        feeds = self._real_rss_feeds()
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            registry_path = root / "sources.json"
+            output_path = root / "research-queue.json"
+            sources = [source for source, _ in feeds.values()]
+            registry_path.write_text(json.dumps(sources), encoding="utf-8")
+            payloads = {
+                source["id"]: payload
+                for source, payload in feeds.values()
+            }
+            with patch(
+                "collect.fetch_feed",
+                side_effect=lambda source: payloads[source["id"]],
+            ):
+                self.assertTrue(
+                    collect(
+                        registry_path,
+                        output_path,
+                        datetime(2026, 10, 19, tzinfo=timezone.utc),
+                    )
+                )
+                generated = json.loads(output_path.read_text(encoding="utf-8"))
+                active_by_id = {
+                    item["stable_id"]: item
+                    for item in generated["items"]
+                }
+                self.assertEqual(len(active_by_id), 4)
+                self.assertEqual(generated["excluded_items"], [])
+                expected_scores = {
+                    "amd-investor-relations": (100, "high"),
+                    "equinix-investor-relations": (85, "high"),
+                    "data-center-dynamics": (95, "high"),
+                    "nvidia-newsroom": (58, "low"),
+                }
+                for source, _ in feeds.values():
+                    matching_id = next(
+                        stable_id
+                        for stable_id in active_by_id
+                        if stable_id.startswith(f"{source['id']}:")
+                    )
+                    item = active_by_id[matching_id]
+                    self.assertEqual(
+                        (item["relevance_score"], item["priority"]),
+                        expected_scores[source["id"]],
+                    )
+                    self.assertEqual(
+                        matching_id,
+                        f"{source['id']}:{item['source_url']}",
+                    )
+                contents = output_path.read_bytes()
+                self.assertFalse(
+                    collect(
+                        registry_path,
+                        output_path,
+                        datetime(2026, 10, 19, tzinfo=timezone.utc),
+                    )
+                )
+                self.assertEqual(output_path.read_bytes(), contents)
 
-    @unittest.expectedFailure
-    def test_actual_equinix_nvidia_inference_rss_item_is_high_priority(self) -> None:
-        self.assertEqual(self._real_rss_examples()["equinix_nvidia"]["priority"], "high")
-
-    @unittest.expectedFailure
-    def test_actual_amazon_xenergy_source_item_is_high_priority(self) -> None:
-        self.assertEqual(self._real_rss_examples()["amazon_xenergy_smr"]["priority"], "high")
-
-    @unittest.expectedFailure
-    def test_actual_nvidia_industrial_ai_rss_item_is_not_excluded(self) -> None:
-        self.assertNotEqual(self._real_rss_examples()["nvidia_industrial_ai"]["priority"], "excluded")
+    def test_actual_rss_inputs_do_not_admit_opinions(self) -> None:
+        title = "Germany’s industrial AI roadmap for manufacturing"
+        excerpt = "NVIDIA discusses industrial applications of AI and robotics."
+        url = "https://www.datacenterdynamics.com/en/opinions/industrial-ai-roadmap/"
+        source = {
+            "id": "data-center-dynamics",
+            "publisher": "Data Center Dynamics",
+            "url": "https://www.datacenterdynamics.com/en/rss/",
+            "source_type": "publisher",
+        }
+        payload = (
+            f"<rss><channel><item><title>{escape(title)}</title>"
+            f"<link>{escape(url)}</link><guid>{escape(url)}</guid>"
+            f"<pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>"
+            f"<description>{escape(excerpt)}</description></item></channel></rss>"
+        ).encode()
+        result = parse_feed(payload, source, RETRIEVED_AT)[0]
+        self.assertEqual(result["category"], "robotics")
+        self.assertEqual(result["priority"], "excluded")
+        self.assertIn("Opinion or commentary", result["exclusion_reason"])
 
 class DeduplicationTests(unittest.TestCase):
     def _item(self, stable_id: str, url: str, date: str, **extra: object) -> dict[str, object]:

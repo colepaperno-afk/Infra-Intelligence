@@ -373,6 +373,7 @@ def score_article(
     category: str,
     mentioned_companies: list[str],
     rules: dict[str, Any] | None = None,
+    source_url: str | None = None,
 ) -> dict[str, Any]:
     config = rules or DEFAULT_RULES_CONFIG
     text = f"{title} {excerpt}"
@@ -386,6 +387,10 @@ def score_article(
         _has_match(text, config["patterns"]["gaming"])
         and not topic_match
         and not compute_match
+    )
+    opinion = _has_match(title, config["patterns"]["opinion"]) or bool(
+        source_url
+        and re.search(r"/opinions?/", urlsplit(source_url).path, re.IGNORECASE)
     )
     sponsored = _has_match(text, config["patterns"]["sponsorship"])
     evergreen = _has_match(text, config["patterns"]["evergreen"])
@@ -401,6 +406,8 @@ def score_article(
 
     if age_days > config["stale_after_days"]:
         exclusion_reason = f"Published more than {config['stale_after_days']} days before collection."
+    elif opinion:
+        exclusion_reason = "Opinion or commentary content is not eligible for active review."
     elif sponsored:
         exclusion_reason = "Marked as sponsored or promotional content."
     elif consumer_gaming_without_infrastructure:
@@ -534,6 +541,7 @@ def parse_feed(
             category,
             mentioned_companies,
             config,
+            source_url=source_url,
         )
 
         stable_identifier = _child_text(entry, ("guid", "id"))
@@ -754,6 +762,7 @@ def load_queue_document(
                     item["category"],
                     item["mentioned_companies"],
                     config,
+                    source_url=item["source_url"],
                 )
             )
     return items, excluded_items
