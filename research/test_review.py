@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from argparse import Namespace
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 import tempfile
@@ -19,6 +20,7 @@ from review import (
     load_decisions,
     publication_eligible,
     record_decision,
+    submit_command,
 )
 from review_server import create_server
 
@@ -139,6 +141,96 @@ class EditorialDecisionTests(unittest.TestCase):
             )
         with self.assertRaisesRegex(ValueError, "at most 2000"):
             self.record("reject", "large-note", "x" * 2001)
+
+    def test_dispatch_approves_article_from_active_draft_queue_and_preserves_history(self) -> None:
+        article_id = (
+            "publisher:https://example.test/amazon-germany-investment"
+        )
+        draft_queue = self.root / "draft-research-queue.json"
+        main_queue = self.root / "main-research-queue.json"
+        target_article = article(
+            article_id,
+            title="Amazon pledges €16bn investment in Germany in 2027",
+        )
+        draft_queue.write_text(
+            json.dumps({
+                "schema_version": 2,
+                "items": [target_article],
+                "excluded_items": [],
+            }),
+            encoding="utf-8",
+        )
+        main_queue.write_text(
+            json.dumps({"schema_version": 2, "items": [], "excluded_items": []}),
+            encoding="utf-8",
+        )
+        self.assertTrue(record_decision(
+            article_id,
+            "hold",
+            "Earlier Reviewer",
+            "Awaiting confirmation.",
+            "previous-review",
+            queue_path=draft_queue,
+            decisions_path=self.decisions_path,
+            timestamp=datetime(2026, 10, 18, 14, tzinfo=timezone.utc),
+        ))
+
+        result = submit_command(
+            Namespace(
+                article_id=article_id,
+                decision="approve",
+                reviewer="Editorial Reviewer",
+                notes="Source verified.",
+                request_id="draft-queue-review",
+                queue=draft_queue,
+            ),
+            decisions_path=self.decisions_path,
+        )
+
+        self.assertEqual(result, 0)
+        records = load_decisions(self.decisions_path)
+        self.assertEqual(
+            [(record["article_id"], record["decision"]) for record in records],
+            [(article_id, "hold"), (article_id, "approve")],
+        )
+        self.assertEqual(records[0]["reviewer"], "Earlier Reviewer")
+        self.assertEqual(records[0]["request_id"], "previous-review")
+        self.assertTrue(publication_eligible(target_article, records))
+        with self.assertRaisesRegex(ValueError, "not in the active review queue"):
+            record_decision(
+                article_id,
+                "approve",
+                "Editorial Reviewer",
+                "",
+                "main-queue-review",
+                queue_path=main_queue,
+                decisions_path=self.decisions_path,
+            )
+
+    def test_excluded_articles_cannot_be_approved(self) -> None:
+        excluded = article(
+            "publisher:excluded-story",
+            priority="excluded",
+            relevance_score=20,
+        )
+        self.queue_path.write_text(
+            json.dumps({
+                "schema_version": 2,
+                "items": [],
+                "excluded_items": [excluded],
+            }),
+            encoding="utf-8",
+        )
+        with self.assertRaisesRegex(ValueError, "not in the active review queue"):
+            record_decision(
+                "publisher:excluded-story",
+                "approve",
+                "Reviewer",
+                "",
+                "excluded-request",
+                queue_path=self.queue_path,
+                decisions_path=self.decisions_path,
+            )
 
     def test_filtering_and_score_and_publication_date_sorting(self) -> None:
         items = [
@@ -355,6 +447,11 @@ class LocalWriteSecurityTests(unittest.TestCase):
         self.assertIn("pull-requests: write", workflow)
         self.assertIn("REVIEWER: ${{ github.actor }}", workflow)
         self.assertIn("GH_TOKEN: ${{ github.token }}", workflow)
+        self.assertIn("refs/heads/automation/research-queue", workflow)
+        self.assertIn("research/data/research-queue.json", workflow)
+        self.assertIn('--queue "$QUEUE_PATH"', workflow)
+        self.assertIn('--base "$DEFAULT_BRANCH"', workflow)
+        self.assertIn("git add research/data/editorial-decisions.json", workflow)
         self.assertNotIn("GITHUB_TOKEN", dashboard)
         self.assertNotIn("GH_TOKEN", dashboard)
         self.assertIn("draft: true", collection_workflow)

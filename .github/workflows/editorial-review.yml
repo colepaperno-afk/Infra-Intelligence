@@ -47,6 +47,14 @@ jobs:
       - name: Run offline research and review tests
         run: python -m unittest discover -s research -p "test_*.py" -v
 
+      - name: Read the active draft research queue
+        run: |
+          git fetch --no-tags origin \
+            refs/heads/automation/research-queue:refs/remotes/origin/automation/research-queue
+          git show \
+            refs/remotes/origin/automation/research-queue:research/data/research-queue.json \
+            > "$RUNNER_TEMP/research-queue.json"
+
       - name: Validate and record decision
         env:
           ARTICLE_ID: ${{ inputs.article_id }}
@@ -55,6 +63,7 @@ jobs:
           REVIEWER: ${{ github.actor }}
           REQUEST_ID: ${{ github.run_id }}
           REVIEW_BRANCH: editorial/review-${{ github.run_id }}
+          QUEUE_PATH: ${{ runner.temp }}/research-queue.json
         run: |
           if git ls-remote --exit-code --heads origin "$REVIEW_BRANCH" >/dev/null 2>&1; then
             git fetch origin "refs/heads/$REVIEW_BRANCH:refs/remotes/origin/$REVIEW_BRANCH"
@@ -67,7 +76,8 @@ jobs:
             --decision "$DECISION" \
             --reviewer "$REVIEWER" \
             --notes "$NOTES" \
-            --request-id "$REQUEST_ID"
+            --request-id "$REQUEST_ID" \
+            --queue "$QUEUE_PATH"
 
       - name: Open a human-reviewed pull request
         env:
