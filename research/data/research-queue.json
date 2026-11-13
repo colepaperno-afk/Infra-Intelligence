@@ -1,5 +1,2677 @@
 {
-  "schema_version": 2,
-  "items": [],
-  "excluded_items": []
+  "excluded_items": [
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://www.therobotreport.com/nvidia-replaces-ceo-amid-china-ai-and-robotics-concerns",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "NVIDIA is replacing co-founder Jensen Huang with Collette Kress as CEO and Harvey C. Jones as board chair as it faces trade scrutiny. The post NVIDIA replaces CEO amid China AI and robotics concerns appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-12T16:33:17Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Identifies a publicly traded or named infrastructure company (+8).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 36,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/nvidia-replaces-ceo-amid-china-ai-and-robotics-concerns/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590239",
+      "title": "NVIDIA replaces CEO amid China AI and robotics concerns"
+    },
+    {
+      "affected_tickers": [
+        "INTC"
+      ],
+      "canonical_url": "https://www.therobotreport.com/intel-altera-expand-collaboration-simplify-sensor-integration-physical-ai",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "Altera and Intel are working to make it easier to connect diverse sensors, turn data into real-time insights, and develop robotics. The post Intel and Altera expand collaboration to simplify sensor integration for physical AI appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [
+        "Intel"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-10T14:47:10Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Identifies a publicly traded or named infrastructure company (+8).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 36,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/intel-altera-expand-collaboration-simplify-sensor-integration-physical-ai/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590207",
+      "title": "Intel and Altera expand collaboration to simplify sensor integration for physical AI"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/carrier-connects-purecolo-appoints-mark-kerr-as-ceo",
+      "category": "data_centers",
+      "event_type": "other",
+      "excerpt": "Joins from Qu Data Centres",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T10:22:53Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 35,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/carrier-connects-purecolo-appoints-mark-kerr-as-ceo/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/carrier-connects-purecolo-appoints-mark-kerr-as-ceo/",
+      "title": "Carrier Connect’s Purecolo appoints Mark Kerr as CEO"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/six-agibot-g2-robots-complete-1730-tasks-in-24-hour-shanghai-convenience-store-trial",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "Four of the six robots pass a performance assessment as the trial puts customer service, retail operations and embodied AI capabilities to the test in a working store. The post Six AGIBOT G2 Robots Complete 1,730 Tasks in 24-Hour Shanghai Convenience Store Trial appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T16:32:58Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/six-agibot-g2-robots-complete-1730-tasks-in-24-hour-shanghai-convenience-store-trial/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590222",
+      "title": "Six AGIBOT G2 Robots Complete 1,730 Tasks in 24-Hour Shanghai Convenience Store Trial"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/how-rhoda-ai-is-using-video-data-to-create-generalized-ai-models-for-robots",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "Rhoda AI offers a direct video action model, which it recently extended with mobile DVA, to enable robots to understand the physical world. The post How Rhoda AI is using video data to create generalized AI models for robots appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T13:30:44Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/how-rhoda-ai-is-using-video-data-to-create-generalized-ai-models-for-robots/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590242",
+      "title": "How Rhoda AI is using video data to create generalized AI models for robots"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/viam-launchpad-aims-to-accelerate-robotics-deployments",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "The Viam Launchpad is intended to provide the software and engineering infrastructure to help startups bring robots to commercial deployment. The post Viam Launchpad aims to accelerate robotics deployments appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-12T13:30:31Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/viam-launchpad-aims-to-accelerate-robotics-deployments/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590231",
+      "title": "Viam Launchpad aims to accelerate robotics deployments"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://blogs.nvidia.com/blog/ai-recycling-startups",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "Vision AI and robotics pick what’s worth recovering out of conveyor belts of used clothing, bottles and mixed recyclables, diverting thousands of tons of materials from landfills.",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-11T03:00:20Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/ai-recycling-startups/",
+      "title": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/why-predictive-maintenance-matters-more-as-factories-add-robots",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "As robotics scales across industries, companies need a maintenance strategy to collect and use the right data to minimize downtime. The post Why predictive maintenance matters more as factories add robots appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-10T16:13:40Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/why-predictive-maintenance-matters-more-as-factories-add-robots/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590209",
+      "title": "Why predictive maintenance matters more as factories add robots"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/boston-dynamics-adds-wheels-to-atlas-humanoid-to-test-whole-body-control",
+      "category": "robotics",
+      "event_type": "other",
+      "excerpt": "Boston Dynamics combines classical motor control with whole-body reinforcement learning to power dynamic, wheeled locomotion for Atlas. The post Boston Dynamics adds wheels to Atlas humanoid to test whole-body control appeared first on The Robot Report .",
+      "exclusion_reason": "Relevance score is below the active-review threshold.",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-09T18:34:38Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Relevance score is below the active-review threshold."
+      ],
+      "relevance_score": 28,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/boston-dynamics-adds-wheels-to-atlas-humanoid-to-test-whole-body-control/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590172",
+      "title": "Boston Dynamics adds wheels to Atlas humanoid to test whole-body control"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/analysis/dcd-connect-virginia-2026-its-all-about-the-power-and-public-perception",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Midterm election results hang heavy, but speed to power still the focus",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T18:04:32Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/analysis/dcd-connect-virginia-2026-its-all-about-the-power-and-public-perception/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/analysis/dcd-connect-virginia-2026-its-all-about-the-power-and-public-perception/",
+      "title": "DCD Connect Virginia 2026: It’s all about the power (and public perception)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/charlotte-hornets-taps-boldyn-networks-for-cellular-5g",
+      "category": "other",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Will support 5G corridor connectivity to the Hornets nearby training facility",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T18:02:29Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/charlotte-hornets-taps-boldyn-networks-for-cellular-5g/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/charlotte-hornets-taps-boldyn-networks-for-cellular-5g/",
+      "title": "Charlotte Hornets taps Boldyn Networks for cellular 5G"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/analysis/asic-custom-silicon-amazon-arm-meta",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Startups and hyperscalers alike are making the case for custom silicon",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T17:00:43Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/analysis/asic-custom-silicon-amazon-arm-meta/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/analysis/asic-custom-silicon-amazon-arm-meta/",
+      "title": "ASIC ambition"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/opinions/why-ai-infrastructure-must-rethink-facility-water-loop-management",
+      "category": "other",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Managing the primary facility water loop as mission-critical infrastructure for high-density, liquid-cooled AI computing",
+      "exclusion_reason": "Marked as sponsored or promotional content.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T16:00:00Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Marked as sponsored or promotional content."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/opinions/why-ai-infrastructure-must-rethink-facility-water-loop-management/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/opinions/why-ai-infrastructure-must-rethink-facility-water-loop-management/",
+      "title": "Sponsored: Why AI infrastructure must rethink facility water loop management"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/opinions/beyond-data-location-why-the-control-plane-is-europes-real-sovereignty-challenge",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "And it won't be cheap",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T15:30:39Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/opinions/beyond-data-location-why-the-control-plane-is-europes-real-sovereignty-challenge/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/opinions/beyond-data-location-why-the-control-plane-is-europes-real-sovereignty-challenge/",
+      "title": "Beyond data location: why the control plane is Europe’s real sovereignty challenge"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/quantum-earnings-q3-2026-d-wave-ionq-iqm-quantinuum-rigetti-and-xanadu-publish-third-quarter-results-alongside-newly-public-pasqal",
+      "category": "other",
+      "event_type": "earnings_or_guidance",
+      "excerpt": "The largest number of publicly traded quantum computing companies",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T15:22:52Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/quantum-earnings-q3-2026-d-wave-ionq-iqm-quantinuum-rigetti-and-xanadu-publish-third-quarter-results-alongside-newly-public-pasqal/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/quantum-earnings-q3-2026-d-wave-ionq-iqm-quantinuum-rigetti-and-xanadu-publish-third-quarter-results-alongside-newly-public-pasqal/",
+      "title": "Quantum earnings Q3 2026: D-Wave, IonQ, IQM, Quantinuum, Rigetti, and Xanadu publish third-quarter results alongside newly public Pasqal"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/powerbridge-breaks-ground-on-gigawatt-scale-powered-land-campus-in-texas",
+      "category": "other",
+      "event_type": "capacity_or_construction",
+      "excerpt": "First 300MW due live in 2027, ready for others to build on",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T15:01:57Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/powerbridge-breaks-ground-on-gigawatt-scale-powered-land-campus-in-texas/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/powerbridge-breaks-ground-on-gigawatt-scale-powered-land-campus-in-texas/",
+      "title": "PowerBridge breaks ground on gigawatt-scale powered land campus in Texas"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/syntys-breaks-ground-on-20mw-data-center-in-qatar",
+      "category": "ai_semiconductors",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Facility to support high-density GPU workloads",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T14:47:01Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/syntys-breaks-ground-on-20mw-data-center-in-qatar/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/syntys-breaks-ground-on-20mw-data-center-in-qatar/",
+      "title": "Syntys breaks ground on 20MW data center in Qatar"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68445",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Prolonged drought conditions affecting the Colorado River Basin led to record low hydropower generation this summer in the Southwestern electricity supply region, which includes Arizona, New Mexico, and small parts of Nevada and California. Hydropower generation from April through August 2026 was 19% lower than during the same period last year and 28% lower than the 10-year average, according to the latest data…",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68445",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68445",
+      "title": "Hydropower generation in the Southwest fell to record lows this summer"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "From pediatric research to smart hospitals, AI is helping care teams spend less time on routine tasks and more time with patients. Health systems and startups are putting it to work across healthcare, from matching patients to clinical trials to supporting radiologists, hospital teams and patients at home. Clinicians stay at the center, reviewing AI […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T13:00:42Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
+      "title": "How AI Is Helping Care Teams Get Patients the Right Care, Sooner"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/vodafonethree-considers-feasibility-of-uk-norway-subsea-cable-route",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "A study is expected to take place next year",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T12:31:15Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/vodafonethree-considers-feasibility-of-uk-norway-subsea-cable-route/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/vodafonethree-considers-feasibility-of-uk-norway-subsea-cable-route/",
+      "title": "VodafoneThree considers feasibility of UK-Norway subsea cable route"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/nscale-brings-online-two-data-centers-and-25000-gpus-in-25-months",
+      "category": "ai_semiconductors",
+      "event_type": "other",
+      "excerpt": "Latest prospectus also provides more details about agreements with Anthropic.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-13T10:05:00Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/nscale-brings-online-two-data-centers-and-25000-gpus-in-25-months/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/nscale-brings-online-two-data-centers-and-25000-gpus-in-25-months/",
+      "title": "Nscale brings online two data centers and 25,000 GPUs in 2.5 months"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Rally the ranks this GFN Thursday. Warhammer 40,000: Dawn of War IV is coming to GeForce NOW, allowing players to experience the battle for Kronus through cloud gaming. There’s more on the horizon, with NVIDIA DLSS 5 technology coming to War Thunder and Where Winds Meet. Meanwhile, Dragon’s Dogma 2: Dark Arisen brings new tales […]",
+      "exclusion_reason": "Consumer gaming coverage without a clear AI infrastructure connection.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-12T14:00:59Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Consumer gaming coverage without a clear AI infrastructure connection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
+      "title": "A New Dawn in the Cloud: ‘Warhammer 40,000: Dawn of War IV’ Is Coming to GeForce NOW"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68444",
+      "category": "energy_power",
+      "event_type": "earnings_or_guidance",
+      "excerpt": "After decades of decline, crude oil production in Alaska is growing, driven by two projects on Alaska's North Slope. In our latest Short-Term Energy Outlook, we expect a 23,000 barrels per day (b/d) (6%) increase in 2026, followed by a 60,000 b/d (13%) rise in 2027. At a forecast 505,000 b/d in 2027, output would be the most since 2014.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-12T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68444",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68444",
+      "title": "EIA forecasts Alaskan crude oil production to grow 13% in 2027"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+      "category": "other",
+      "event_type": "product_or_technology",
+      "excerpt": "NVIDIA Announces CEO Transition",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-12T13:48:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+      "stable_id": "nvidia-newsroom:https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+      "title": "NVIDIA Announces CEO Transition"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://nvidianews.nvidia.com/news/statement-from-the-independent-members-of-the-nvidia-board",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Statement From the Independent Members of the NVIDIA Board",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-10T19:07:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/statement-from-the-independent-members-of-the-nvidia-board",
+      "stable_id": "nvidia-newsroom:https://nvidianews.nvidia.com/news/statement-from-the-independent-members-of-the-nvidia-board",
+      "title": "Statement From the Independent Members of the NVIDIA Board"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1305/amd-showcases-6th-gen-amd-epyc-processors-to-lead-next-era-of-ai-and-enterprise-computing",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD Showcases 6th Gen AMD EPYC Processors to Lead Next Era of AI and Enterprise Computing",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-10T17:00:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1305/amd-showcases-6th-gen-amd-epyc-processors-to-lead-next-era-of-ai-and-enterprise-computing",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1305/amd-showcases-6th-gen-amd-epyc-processors-to-lead-next-era-of-ai-and-enterprise-computing",
+      "title": "AMD Showcases 6th Gen AMD EPYC Processors to Lead Next Era of AI and Enterprise Computing"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it are only growing. To help meet them, NVIDIA is deepening its commitment to open source at KubeCon + CloudNativeCon, the flagship conference for the Kubernetes and cloud-native communities. NVIDIA […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-10T16:00:03Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+      "title": "NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1131/equinix-issues-2-5-billion-in-green-bonds-to-advance",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Equinix Issues €2.5 Billion in Green Bonds to Advance Sustainability Initiatives",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-10T13:01:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1131/equinix-issues-2-5-billion-in-green-bonds-to-advance",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1131/equinix-issues-2-5-billion-in-green-bonds-to-advance",
+      "title": "Equinix Issues €2.5 Billion in Green Bonds to Advance Sustainability Initiatives"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD EPYC Expands Its Leadership at the Foundation of AI",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-09T13:00:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai",
+      "title": "AMD EPYC Expands Its Leadership at the Foundation of AI"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "As AI agents take on more work, they need capable open models and security that advances alongside them. Hyundai Motor Group is exploring NVIDIA NemoClaw blueprints and the NVIDIA OpenShell runtime, while AIM Intelligence is integrating its Starfort platform with NVIDIA OpenShell to support secure AI agents for employee productivity and enterprise workflows. A key […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-09T05:00:39Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+      "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration",
+      "category": "ai_semiconductors",
+      "event_type": "other",
+      "excerpt": "NVIDIA and Korea’s Ministry of Science and ICT (MSIT) are expanding their collaboration across the country’s sovereign AI ecosystem, from AI semiconductors and data center infrastructure to talent, startups, models, agents and security. The collaboration lays the groundwork for Korean NPU and XPU companies to explore participation in the NVIDIA NVLink Fusion ecosystem, and includes […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-09T05:00:04Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration/",
+      "title": "From Chips to Skills, NVIDIA and Korea Expand Sovereign AI Collaboration"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+      "category": "ai_semiconductors",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Korean-Designed AI Processors and Models to Build on NVIDIA NVLink Fusion and MGX Infrastructure for Rack-Scale Inference",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-09T05:00:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+      "stable_id": "nvidia-newsroom:https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion",
+      "title": "NVIDIA, Rebellions and SK Telecom Announce Collaboration to Advance Sovereign AI Infrastructure With NVIDIA NVLink Fusion"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models",
+      "category": "ai_semiconductors",
+      "event_type": "capacity_or_construction",
+      "excerpt": "NVIDIA is releasing Dynamo-optimized deployment recipes for Korea’s leading open models: A.X K2 from SK Telecom, K-EXAONE 2.0 from LG AI Research, Solar Open 2 from Upstage and Motif-3 from Motif Technologies. As models grow beyond the capacity of a single GPU, they must be split across multiple GPUs, requiring careful coordination of request routing […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-09T05:00:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/",
+      "title": "NVIDIA Dynamo Recipes Bring Korea’s Leading Open Models to Production"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "NVIDIA founder and CEO Jensen Huang sent the following email to NVIDIA employees earlier today.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-08T21:02:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
+      "stable_id": "nvidia-newsroom:https://nvidianews.nvidia.com/news/a-message-to-our-company",
+      "title": "A Message to Our Company"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Statement From NVIDIA Board of Directors",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-08T20:00:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors",
+      "stable_id": "nvidia-newsroom:https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors",
+      "title": "Statement From NVIDIA Board of Directors"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68425",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "In July 2026, U.S. imports of crude oil from Venezuela averaged 701,000 barrels per day (b/d), the most since May 2017, before decreasing to 655,000 b/d in August, according to data published in our Petroleum Supply Monthly",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-06T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68425",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68425",
+      "title": "U.S. crude oil imports from Venezuela in July were highest since 2017"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1130/equinix-opens-sg6-in-singapore-expanding-ai-ready-capacity",
+      "category": "other",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Equinix Opens SG6 in Singapore, Expanding AI-Ready Capacity in One of Asia-Pacific's Most Connected Markets",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-06T08:32:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1130/equinix-opens-sg6-in-singapore-expanding-ai-ready-capacity",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1130/equinix-opens-sg6-in-singapore-expanding-ai-ready-capacity",
+      "title": "Equinix Opens SG6 in Singapore, Expanding AI-Ready Capacity in One of Asia-Pacific's Most Connected Markets"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents",
+      "category": "ai_semiconductors",
+      "event_type": "other",
+      "excerpt": "AI agents do more than generate answers. They search for information, query databases, write and test code and take action. Each of those steps relies on a CPU, with agents moving between GPU reasoning and CPU execution throughout a task. As businesses put more agents to work, AI factories need CPUs that can execute those […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-05T20:00:41Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
+      "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Chris Alexiuk has a simple rule about open source AI: If you believe in it, be loud about it. “We should be shouting about this technology from the rooftops,” said Alexiuk, a Toronto-based senior product research engineer in deep learning at NVIDIA who specializes in making open large language models (LLMs) practical for working developers. […]",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-05T16:00:05Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk/",
+      "title": "The Wizard of Open Weights: Chris Alexiuk Makes AI Easy With Open Models"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5",
+      "category": "other",
+      "event_type": "product_or_technology",
+      "excerpt": "Hogwarts Legacy receives an NVIDIA DLSS 5 upgrade with 3D-Guided Neural Rendering today, bringing lifelike lighting and materials to the wizarding world on GeForce NOW. Blizzard Entertainment’s World of Warcraft: Forever also opens a new chapter in Azeroth, with a launch-week access reward available for GeForce NOW members. Meanwhile, Ubisoft brings fresh challenges with expansions […]",
+      "exclusion_reason": "Consumer gaming coverage without a clear AI infrastructure connection.",
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-05T14:00:34Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Consumer gaming coverage without a clear AI infrastructure connection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5/",
+      "title": "‘Hogwarts Legacy’ Gets a Magical NVIDIA DLSS 5 Upgrade on GeForce NOW"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Particularly high refinery margins for distillate fuel oil and jet fuel have contributed to shifts in the refinery yields of major products in 2026. Data from our latest Petroleum Supply Monthly—which includes data through August 2026—indicate refinery yields of gasoline have decreased significantly this year to support increased production of distillate fuel oil and jet fuel, sometimes referred to as middle…",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-05T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68424",
+      "title": "Refineries have shifted production away from gasoline to middle distillates"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD Reports Third Quarter 2026 Financial Results",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-11-03T21:15:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
+      "title": "AMD Reports Third Quarter 2026 Financial Results"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68404",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Global crude oil refinery inputs fell by 4.8 million barrels per day (b/d) in the second quarter of 2026 (2Q26), or 6%, following the start of conflict in late February in the Middle East, according to data from Kpler. Throughput then increased by 1.8 million b/d in the third quarter, primarily as refiners in the region adjusted to new trade flows.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-11-03T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68404",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68404",
+      "title": "Global refinery inputs fell sharply in the second quarter of 2026 before modest recovery"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68384",
+      "category": "energy_power",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Utility-scale solar developers are increasingly co-locating battery storage with new solar photovoltaic capacity. As of September 2026, over 16% of new utility-scale solar capacity added this year is co-located with operable battery storage, compared with 2% in 2017, according to data reported to EIA by operators.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-30T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68384",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68384",
+      "title": "The share of solar generation with co-located battery storage is increasing"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68364",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Colombia is importing more liquefied natural gas (LNG) as domestic production continues to fall. A potential drought this fall and winter could limit the availability of hydroelectric generation and boost the country's demand for natural gas power generation. Colombia's government has declared a national disaster in anticipation of a drought resulting from an expected strong El Niño.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-29T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68364",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68364",
+      "title": "LNG imports make up increasing share of Colombia's natural gas supply"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1129/equinix-declares-quarterly-dividend-on-its-common-stock",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Equinix Declares Quarterly Dividend on Its Common Stock",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-28T20:10:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1129/equinix-declares-quarterly-dividend-on-its-common-stock",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1129/equinix-declares-quarterly-dividend-on-its-common-stock",
+      "title": "Equinix Declares Quarterly Dividend on Its Common Stock"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+      "category": "other",
+      "event_type": "earnings_or_guidance",
+      "excerpt": "Equinix Reports Third-Quarter Results and Raises 2026 Guidance",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-28T20:05:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+      "title": "Equinix Reports Third-Quarter Results and Raises 2026 Guidance"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1302/amd-and-meta-advance-strategic-partnership-to-power-metas-superintelligence-infrastructure",
+      "category": "energy_power",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "AMD and Meta Advance Strategic Partnership to Power Meta’s Superintelligence Infrastructure",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-27T13:20:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1302/amd-and-meta-advance-strategic-partnership-to-power-metas-superintelligence-infrastructure",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1302/amd-and-meta-advance-strategic-partnership-to-power-metas-superintelligence-infrastructure",
+      "title": "AMD and Meta Advance Strategic Partnership to Power Meta’s Superintelligence Infrastructure"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68344",
+      "category": "other",
+      "event_type": "capacity_or_construction",
+      "excerpt": "The U.S. refinery fleet has run at higher-than-normal rates this year, with refinery utilization averaging more than 95% of capacity between May and September, the highest for those months since 1998. Tight global product supplies this year have boosted margins for petroleum products, particularly for diesel, incentivizing the increased run rates.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-22T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68344",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68344",
+      "title": "U.S. refineries have been running at very high rates in 2026"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1127/equinix-opens-innovation-centers-globally-to-accelerate",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Equinix Opens Innovation Centers Globally to Accelerate Enterprise Infrastructure Deployments",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-21T12:00:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1127/equinix-opens-innovation-centers-globally-to-accelerate",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1127/equinix-opens-innovation-centers-globally-to-accelerate",
+      "title": "Equinix Opens Innovation Centers Globally to Accelerate Enterprise Infrastructure Deployments"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68325",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "In the third quarter of 2026 (3Q26), 23% of new light-duty vehicles sold in the United States were hybrid electric, battery electric, or plug-in hybrid electric vehicles, down slightly from 24% in 3Q25. Between 3Q25 and 3Q26, hybrid electric vehicles continued to gain market share, reaching 16% of light-duty vehicle sales. Growth of hybrid electric vehicle sales has slowed this quarter as the average transaction…",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-19T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68325",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68325",
+      "title": "Hybrid sales rise while battery electric sales remain lower after tax credit expiration"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68324",
+      "category": "energy_power",
+      "event_type": "capacity_or_construction",
+      "excerpt": "We estimate that U.S. generation from small-scale or rooftop solar photovoltaic systems (smaller than 1 megawatt of capacity) has increased from 18,812 gigawatthours (GWh) to 92,979 GWh over the last decade. The four states with the highest generation of small-scale solar in the country-California, Arizona, Texas, and Florida-are in regions with more abundant solar resources. Even though it is in a region with…",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-16T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68324",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68324",
+      "title": "U.S. small-scale solar generation has quadrupled in the last decade"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68305",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Three regional transmission organizations (RTOs) set records for peak hourly load this past summer, according to data reported on Form EIA-930 and presented in the Hourly Electric Grid Monitor.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-15T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68305",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68305",
+      "title": "PJM, ERCOT, and SWPP all set peak load records this summer"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68304",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Monthly wind generation in the first nine months of 2026 was an average of 68% higher compared with the same period in 2025 in ISO New England (ISO-NE).",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-14T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68304",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68304",
+      "title": "Monthly wind generation in ISO-NE is about 68% higher than last year"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68264",
+      "category": "energy_power",
+      "event_type": "earnings_or_guidance",
+      "excerpt": "We expect energy expenditures this winter to vary because of diverging trends in energy prices among fuels and regional variation in forecast temperatures. We expect that lower prices for natural gas and propane will drive decreases in expenditures this year for the half of U.S. households heating with those fuels. Higher prices for electricity and heating oil drive increased expenditures for households heating…",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-07T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68264",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68264",
+      "title": "Mixed outlook for energy expenditures this winter"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD to Report Fiscal Third Quarter 2026 Financial Results",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-06T20:15:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
+      "title": "AMD to Report Fiscal Third Quarter 2026 Financial Results"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68245",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Petroleum markets in the third quarter of 2026 (3Q26) were characterized by increasing prices for crude oil and petroleum products amid persistent conflict in the Middle East.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-05T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68245",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68245",
+      "title": "Crude oil prices and refinery margins generally increased throughout the third quarter"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68225",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "U.S. natural gas production hit an all-time high in July 2026, driven primarily by increased output in the Permian Basin, according to our latest Natural Gas Monthly.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-02T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68225",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68225",
+      "title": "U.S. natural gas production reached a record high in July 2026"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68244",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "U.S. propane exports increased to 2 million barrels per day (b/d) in the first half of 2026, 11% more than during the same period in 2025. Increased U.S. propane production and changing trade flows, particularly increased exports to India and other countries in South Asia, drove propane exports to a record high of 2.1 million (b/d) in April 2026. Since then, total propane exports, including exports to India, have…",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-10-01T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68244",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68244",
+      "title": "U.S. exports of propane reached records in the first half of 2026"
+    },
+    {
+      "affected_tickers": [
+        "EQIX"
+      ],
+      "canonical_url": "https://investor.equinix.com/news-events/press-releases/detail/1126/media-alert-equinix-sets-conference-call-for-third-quarter",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "MEDIA ALERT: Equinix Sets Conference Call for Third-Quarter Results",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://investor.equinix.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Equinix"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-10-01T12:01:00Z",
+      "publisher": "Equinix, Inc. (EQIX)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "equinix-investor-relations",
+      "source_url": "https://investor.equinix.com/news-events/press-releases/detail/1126/media-alert-equinix-sets-conference-call-for-third-quarter",
+      "stable_id": "equinix-investor-relations:https://investor.equinix.com/news-events/press-releases/detail/1126/media-alert-equinix-sets-conference-call-for-third-quarter",
+      "title": "MEDIA ALERT: Equinix Sets Conference Call for Third-Quarter Results"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68224",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "We estimate light-duty electric vehicles in the United States consumed 8% more electricity during the first six months of 2026 than in the last half of 2025 (2H25) in our Monthly Energy Review, down from the 13-24% growth seen in six-month periods in recent years. The slowing electric vehicle electricity consumption growth followed a decline in sales after U.S. federal tax credits expired in September 2025.…",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-30T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68224",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68224",
+      "title": "U.S. electricity use for electric vehicles increasing at a slower pace in 2026"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68204",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "The Henry Hub natural gas spot price averaged $2.93 per million British thermal units from June through August, 6% less than the same period last year. Prices were lower this summer despite exceptionally hot weather that increased electricity demand for air conditioning. Natural gas-fired power plants often help meet higher demand during such periods.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-25T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68204",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68204",
+      "title": "Henry Hub natural gas prices this summer were 6% lower than last summer"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68184",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Publicly traded companies represent a tiny share of the total number of companies producing crude oil and natural gas in the United States, but they make up a large share of U.S. production. In 2025, publicly traded companies accounted for just 2% of about 12,000 oil and natural gas producers but produced 68% of the crude oil and natural gas in the Lower 48 states.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-22T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68184",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68184",
+      "title": "Public companies produce most U.S. crude oil and natural gas"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68164",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "The price of distillate fuel oil, often sold as diesel, is driven by the price of crude oil, retail margins, distribution costs, taxes, and crack spreads, the indicator we use for refining margins. Tight global supplies of distillate fuel oil and elevated crude oil prices have driven prices higher in recent months.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-18T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68164",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68164",
+      "title": "What goes into diesel prices?"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68144",
+      "category": "energy_power",
+      "event_type": "capacity_or_construction",
+      "excerpt": "On August 28, 2026, Cheniere Energy, Inc., completed its Corpus Christi Liquefaction Stage 3 Project (CCL Stage 3) in Texas, taking custody and control of the seventh and last liquefied natural gas (LNG) train in the project.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-15T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68144",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68144",
+      "title": "Corpus Christi LNG expansion makes facility the second-largest in the United States"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68125",
+      "category": "energy_power",
+      "event_type": "earnings_or_guidance",
+      "excerpt": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-10T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68125",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68125",
+      "title": "United States on track for record crude oil production in 2026"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68124",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Low-cost Appalachian and Canadian natural gas supplies coupled with lower-than-usual regional consumption have pushed down natural gas prices at a major New England pricing hub in recent months to trade at a discount to the widely cited U.S. benchmark, Henry Hub.",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-09T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68124",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68124",
+      "title": "New England natural gas prices have been trading near record discounts to Henry Hub"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "What are crack spreads and why are they elevated? Crack spreads are indicators of the profitability of refining crude oil into petroleum products such as gasoline and diesel. One common crack spread is calculated by subtracting the spot market price of a gallon of crude oil from the wholesale price of a gallon of refined product. Since May, the gasoline crack spread in New York Harbor has averaged about $1 per…",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-04T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68104",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68104",
+      "title": "Elevated crack spreads and crude oil prices contribute to higher prices at the pump"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68084",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Sustained high temperatures have contributed to persistently high electricity demand in the Electric Reliability Council of Texas (ERCOT), the regional transmission organization for most of the state.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-03T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68084",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68084",
+      "title": "Weekly average load in ERCOT continues near record high"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
+      "category": "energy_power",
+      "event_type": "capacity_or_construction",
+      "excerpt": "U.S. liquefied natural gas (LNG) exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of the year, 23% more than the same period in 2025, according to our Natural Gas Monthly. In our latest Short-Term Energy Outlook, we estimate U.S. LNG exports will average 17.3 Bcf/d in the second half of 2026 (2H26) before rising to 18.7 Bcf/d in 1H27.",
+      "exclusion_reason": "Energy coverage lacks a meaningful link to AI compute infrastructure.",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2026-09-01T14:00:00Z",
+      "publisher": "U.S. Energy Information Administration",
+      "relevance_reasons": [
+        "Energy coverage lacks a meaningful link to AI compute infrastructure."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "eia-today-in-energy",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=68064",
+      "stable_id": "eia-today-in-energy:https://www.eia.gov/todayinenergy/detail.php?id=68064",
+      "title": "U.S. LNG exports rose 23% in the first half of 2026 because of higher capacity"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1298/amd-cisco-and-humain-expand-saudi-arabias-ai-infrastructure-as-amd-instinct-systems-go-live",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD, Cisco and HUMAIN Expand Saudi Arabia’s AI Infrastructure as AMD Instinct Systems Go Live",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-08-31T11:15:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1298/amd-cisco-and-humain-expand-saudi-arabias-ai-infrastructure-as-amd-instinct-systems-go-live",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1298/amd-cisco-and-humain-expand-saudi-arabias-ai-infrastructure-as-amd-instinct-systems-go-live",
+      "title": "AMD, Cisco and HUMAIN Expand Saudi Arabia’s AI Infrastructure as AMD Instinct Systems Go Live"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1297/amd-appoints-tim-ryan-to-board-of-directors",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "AMD Appoints Tim Ryan to Board of Directors",
+      "exclusion_reason": "No covered infrastructure topic matched the article text.",
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "excluded",
+      "published_at": "2026-08-19T20:15:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "No covered infrastructure topic matched the article text."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1297/amd-appoints-tim-ryan-to-board-of-directors",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1297/amd-appoints-tim-ryan-to-board-of-directors",
+      "title": "AMD Appoints Tim Ryan to Board of Directors"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/cmei/systems/solar-achievements-timeline",
+      "category": "energy_power",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Solar Achievements Timeline jason.kardell@… June 10, 2020 In 2011, the U.S. Department of Energy's (DOE) Solar Energy Technologies Office (SETO) was tasked with achieving the goals of the SunShot Initiative: to drive down the cost of solar electricity to be fully cost-competitive with traditional energy sources by the end of the decade. SunShot builds on a tradition of steady collaboration between DOE's Energy…",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2020-06-10T14:34:23Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/cmei/systems/solar-achievements-timeline",
+      "stable_id": "department-of-energy:4451780 at https://www.energy.gov",
+      "title": "Solar Achievements Timeline"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/ne/timeline-rtg-and-rhu-space-missions",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "A Timeline of RTG and RHU Space Missions Rahlana.Smith@… October 2, 2019",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2019-10-02T16:43:59Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/ne/timeline-rtg-and-rhu-space-missions",
+      "stable_id": "department-of-energy:4300092 at https://www.energy.gov",
+      "title": "A Timeline of RTG and RHU Space Missions"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/srs/savannah-river-site-history-1990-present",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Savannah River Site History 1990-Present cameron.brazie… March 5, 2019 The Savannah River Site was constructed during the early 1950s to produce the basic materials used in the fabrication of nuclear weapons, primarily tritium and plutonium-239, in support of our nation's defense programs. Five reactors were built to produce these materials. Also built were a number of support facilities including two chemical…",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2019-03-05T18:01:20Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/srs/savannah-river-site-history-1990-present",
+      "stable_id": "department-of-energy:4065873 at https://www.energy.gov",
+      "title": "Savannah River Site History 1990-Present"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/srs/savannah-river-site-history-1950-1989",
+      "category": "energy_power",
+      "event_type": "other",
+      "excerpt": "Savannah River Site History 1950-1989 maura.long@hq… November 9, 2018 The Savannah River Site was constructed during the early 1950s to produce the basic materials used in the fabrication of nuclear weapons, primarily tritium and plutonium-239, in support of our nation's defense programs. Five reactors were built to produce these materials. Also built were a number of support facilities including two chemical…",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2018-11-09T19:15:02Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/srs/savannah-river-site-history-1950-1989",
+      "stable_id": "department-of-energy:3794871 at https://www.energy.gov",
+      "title": "Savannah River Site History 1950-1989"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-rick-perry-january-2017-december-2019",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Rick Perry (January 2017-December 2019) renee.saunders… April 19, 2018",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2018-04-19T13:41:08Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-rick-perry-january-2017-december-2019",
+      "stable_id": "department-of-energy:3447057 at https://www.energy.gov",
+      "title": "Secretary Rick Perry (January 2017-December 2019)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-bill-richardson-1998-2001",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Bill Richardson (1998-2001) renee.saunders… February 5, 2018",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2018-02-05T20:59:34Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-bill-richardson-1998-2001",
+      "stable_id": "department-of-energy:3281202 at https://www.energy.gov",
+      "title": "Secretary Bill Richardson (1998-2001)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-federico-pena-march-1997-june-1998",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Federico Peña (March 1997-June 1998) renee.saunders… February 5, 2018",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2018-02-05T20:44:41Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-federico-pena-march-1997-june-1998",
+      "stable_id": "department-of-energy:3281139 at https://www.energy.gov",
+      "title": "Secretary Federico Peña (March 1997-June 1998)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-hazel-r-oleary-administration-january-1993-january-1997",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Hazel R. O'Leary Administration (January 1993-January 1997) renee.saunders… February 1, 2018",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2018-02-01T19:24:35Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-hazel-r-oleary-administration-january-1993-january-1997",
+      "stable_id": "department-of-energy:3253112 at https://www.energy.gov",
+      "title": "Secretary Hazel R. O'Leary Administration (January 1993-January 1997)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-ernest-moniz-ii-august-2015-january-2017",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Ernest Moniz II (August 2015-January 2017) renee.saunders… December 18, 2017",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2017-12-18T16:52:43Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-ernest-moniz-ii-august-2015-january-2017",
+      "stable_id": "department-of-energy:3123627 at https://www.energy.gov",
+      "title": "Secretary Ernest Moniz II (August 2015-January 2017)"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.energy.gov/em/secretary-ernest-moniz-i-may-2013-july-2015",
+      "category": "other",
+      "event_type": "other",
+      "excerpt": "Secretary Ernest Moniz I (May 2013-July 2015) renee.saunders… December 7, 2017",
+      "exclusion_reason": "Published more than 365 days before collection.",
+      "feed_url": "https://www.energy.gov/rss.xml",
+      "mentioned_companies": [],
+      "priority": "excluded",
+      "published_at": "2017-12-07T19:35:07Z",
+      "publisher": "U.S. Department of Energy",
+      "relevance_reasons": [
+        "Published more than 365 days before collection."
+      ],
+      "relevance_score": 0,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "department-of-energy",
+      "source_url": "https://www.energy.gov/em/secretary-ernest-moniz-i-may-2013-july-2015",
+      "stable_id": "department-of-energy:3068474 at https://www.energy.gov",
+      "title": "Secretary Ernest Moniz I (May 2013-July 2015)"
+    }
+  ],
+  "items": [
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX. Ryu Je-myung, vice minister of science and ICT, joined NVIDIA leaders to meet with over 20 Korean startups across foundation models, physical AI, AI infrastructure and AI semiconductors. NVIDIA also announced an investment in Korean startup Point2, with […]",
+      "exclusion_reason": null,
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "high",
+      "published_at": "2026-11-09T08:00:53Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Quantified investment, capacity, or scale detail (+15).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 93,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+      "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/sttgdc-launches-22mw-data-center-in-noida-india",
+      "category": "data_centers",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Neocloud Neysa to lease capacity in the facility",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "high",
+      "published_at": "2026-11-13T10:16:44Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: capacity or construction (+22).",
+        "Quantified investment, capacity, or scale detail (+15)."
+      ],
+      "relevance_score": 92,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/sttgdc-launches-22mw-data-center-in-noida-india/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/sttgdc-launches-22mw-data-center-in-noida-india/",
+      "title": "STTGDC launches 22MW data center in Noida, India"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly-growing-ai-inference-market",
+      "category": "ai_semiconductors",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "AMD Acquires Taalas to Advance Compute Solutions for Rapidly Growing AI Inference Market",
+      "exclusion_reason": null,
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "high",
+      "published_at": "2026-08-06T20:05:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "Relevant ai semiconductors topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 85,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly-growing-ai-inference-market",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly-growing-ai-inference-market",
+      "title": "AMD Acquires Taalas to Advance Compute Solutions for Rapidly Growing AI Inference Market"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/whitepapers/integrated-data-center-infrastructure",
+      "category": "data_centers",
+      "event_type": "capacity_or_construction",
+      "excerpt": "A unified lifecycle framework for cooling, critical power, power generation and building management systems",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-13T17:23:09Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: capacity or construction (+22)."
+      ],
+      "relevance_score": 77,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/whitepapers/integrated-data-center-infrastructure/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/whitepapers/integrated-data-center-infrastructure/",
+      "title": "Integrated data center infrastructure"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/samsung-in-talks-to-acquire-data-center-cooling-company-modine-manufacturing-report",
+      "category": "data_centers",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Company has already acquired FläktGroup",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-13T16:23:00Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: acquisition or partnership (+22)."
+      ],
+      "relevance_score": 77,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/samsung-in-talks-to-acquire-data-center-cooling-company-modine-manufacturing-report/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/samsung-in-talks-to-acquire-data-center-cooling-company-modine-manufacturing-report/",
+      "title": "Samsung in talks to acquire data center cooling company Modine Manufacturing - report"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/poste-italiane-establishes-600m-co-investment-fund-to-support-data-center-projects",
+      "category": "data_centers",
+      "event_type": "investment_or_funding",
+      "excerpt": "As company seeks to bolster data center infrastructure",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-13T12:26:27Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: investment or funding (+22)."
+      ],
+      "relevance_score": 77,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/poste-italiane-establishes-600m-co-investment-fund-to-support-data-center-projects/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/poste-italiane-establishes-600m-co-investment-fund-to-support-data-center-projects/",
+      "title": "Poste Italiane establishes €600m co-investment fund to support data center projects"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/three-data-center-developments-in-australia-change-course-after-community-backlash",
+      "category": "data_centers",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Developments in Lane Cove, Cooks River, and Tungkillo",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-13T12:25:08Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: capacity or construction (+22)."
+      ],
+      "relevance_score": 77,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/three-data-center-developments-in-australia-change-course-after-community-backlash/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/three-data-center-developments-in-australia-change-course-after-community-backlash/",
+      "title": "Three data center developments in Australia change course after community backlash"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/insite-dc-files-for-four-building-data-center-campus-outside-melbourne-australia",
+      "category": "data_centers",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Company looks to build in Tarneit",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-13T10:05:00Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20).",
+        "Concrete development: capacity or construction (+22)."
+      ],
+      "relevance_score": 77,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/insite-dc-files-for-four-building-data-center-campus-outside-melbourne-australia/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/insite-dc-files-for-four-building-data-center-campus-outside-melbourne-australia/",
+      "title": "Insite DC files for four-building data center campus outside Melbourne, Australia"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/serve-robotics-opens-robot-delivery-network-for-others-to-build-on",
+      "category": "robotics",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Serve Robotics says its on-demand delivery API allows third parties to develop new delivery services on its fleet of more than 2,000 robots. The post Serve Robotics opens robot delivery network for others to build on appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-11T13:43:29Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: capacity or construction (+22).",
+        "Quantified investment, capacity, or scale detail (+15)."
+      ],
+      "relevance_score": 65,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/serve-robotics-opens-robot-delivery-network-for-others-to-build-on/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590220",
+      "title": "Serve Robotics opens robot delivery network for others to build on"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/axon-invests-1-2b-into-skydio-and-becomes-its-u-s-public-safety-distributor",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "The partners plan to bring Skydio drones to public safety agencies across the U.S. as Axon expands its Drone as First Responder program. The post Axon invests $1.2B into Skydio and becomes its U.S. public safety distributor appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "medium",
+      "published_at": "2026-11-10T13:06:58Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Quantified investment, capacity, or scale detail (+15)."
+      ],
+      "relevance_score": 65,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/axon-invests-1-2b-into-skydio-and-becomes-its-u-s-public-safety-distributor/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590175",
+      "title": "Axon invests $1.2B into Skydio and becomes its U.S. public safety distributor"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/memory-full-stack-codesign",
+      "category": "ai_semiconductors",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Larger models, longer contexts and agentic applications are increasing GPU memory pressure while supply tightens and prices rise — a trend expected to continue through the near term. NVIDIA works closely with memory partners to rapidly adopt the latest memory technologies. NVIDIA was first to adopt HBM3e and HBM4 technologies into an accelerated computing stack. […]",
+      "exclusion_reason": null,
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "medium",
+      "published_at": "2026-11-05T16:00:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant ai semiconductors topic (+35).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 65,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/memory-full-stack-codesign/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/memory-full-stack-codesign/",
+      "title": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute",
+      "category": "ai_semiconductors",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "AMD to Acquire World Labs to Advance the Future of AI Compute",
+      "exclusion_reason": null,
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "medium",
+      "published_at": "2026-09-28T20:05:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "Relevant ai semiconductors topic (+35).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 65,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute",
+      "title": "AMD to Acquire World Labs to Advance the Future of AI Compute"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://www.therobotreport.com/can-ai-agents-program-industrial-robots-without-training-data-berkeley-says-yes",
+      "category": "robotics",
+      "event_type": "product_or_technology",
+      "excerpt": "UC Berkeley and NVIDIA have released open-source tools for teams of AI coding agents that write, simulate, and refine readable robot programs. The post Can AI agents program industrial robots without training data? Berkeley says yes appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-11T12:55:16Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: product or technology (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 58,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/can-ai-agents-program-industrial-robots-without-training-data-berkeley-says-yes/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590113",
+      "title": "Can AI agents program industrial robots without training data? Berkeley says yes"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://www.therobotreport.com/nvidia-launches-gr00t-2-isaac-lab-3-0-corl",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "NVIDIA also gave a look at how its partners, like Ambi Robotics, FieldAI, Flexion, Skild AI, RLWRLD, and more, are using these technologies. The post NVIDIA launches GR00T 2 and Isaac Lab 3.0 at CoRL appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-09T21:52:05Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 58,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/nvidia-launches-gr00t-2-isaac-lab-3-0-corl/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590179",
+      "title": "NVIDIA launches GR00T 2 and Isaac Lab 3.0 at CoRL"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Simulation, which has long been the proving ground for robots learning to walk, roll and hop, is now helping researchers teach robots tasks that require a finer touch: aligning gears, connecting cables and assembling small components. The shift from locomotion to manipulation is taking center stage at this week’s Conference on Robot Learning (CoRL) in […]",
+      "exclusion_reason": null,
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-09T14:00:01Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: acquisition or partnership (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 58,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+      "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem",
+      "category": "robotics",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. The country’s industry leaders are applying accelerated computing, AI and simulation to everything from semiconductor manufacturing to robotics and autonomous vehicles. These efforts are helping bring physical AI from development into real-world production. Samsung Advances Semiconductor…",
+      "exclusion_reason": null,
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-09T05:00:40Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: capacity or construction (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 58,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
+      "title": "Korea Advances Physical AI Across Industries With NVIDIA"
+    },
+    {
+      "affected_tickers": [
+        "NVDA"
+      ],
+      "canonical_url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks",
+      "category": "networking",
+      "event_type": "capacity_or_construction",
+      "excerpt": "A year ago, NVIDIA open sourced its Aerial wireless software, joining Sionna and a broader suite of open source tools for accelerating next-generation 6G network development. Together, they give researchers a foundation for testing ideas, comparing results and building on each other’s work — connecting simulation and AI training with experiments on real over-the-air wireless […]",
+      "exclusion_reason": null,
+      "feed_url": "https://nvidianews.nvidia.com/rss.xml",
+      "mentioned_companies": [
+        "NVIDIA"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-06T16:00:00Z",
+      "publisher": "NVIDIA Newsroom",
+      "relevance_reasons": [
+        "Relevant networking topic (+28).",
+        "Concrete development: capacity or construction (+22).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 58,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "nvidia-newsroom",
+      "source_url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
+      "stable_id": "nvidia-newsroom:https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
+      "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/whitepapers/turning-cooling-into-compute",
+      "category": "data_centers",
+      "event_type": "other",
+      "excerpt": "How AI optimization of data hall cooling and the chiller plant frees power for compute in power-constrained data centers",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-13T10:29:06Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant data centers topic (+35).",
+        "Explicit compute-infrastructure connection (+20)."
+      ],
+      "relevance_score": 55,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/whitepapers/turning-cooling-into-compute/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/whitepapers/turning-cooling-into-compute/",
+      "title": "Turning cooling into compute"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/narwal-builds-robot-vacuums-to-serve-regional-needs",
+      "category": "robotics",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Narwal executives say they spent a decade in research and development and have tailored their household cleaning robots to local markets. The post Narwal builds robot vacuums to serve regional needs appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-13T13:18:05Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: capacity or construction (+22)."
+      ],
+      "relevance_score": 50,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/narwal-builds-robot-vacuums-to-serve-regional-needs/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590246",
+      "title": "Narwal builds robot vacuums to serve regional needs"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/nokia-to-support-one-nzs-network-automation-goals",
+      "category": "networking",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Extends the long-standing partnership between the two companies",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-13T11:16:32Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant networking topic (+28).",
+        "Concrete development: acquisition or partnership (+22)."
+      ],
+      "relevance_score": 50,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/nokia-to-support-one-nzs-network-automation-goals/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/nokia-to-support-one-nzs-network-automation-goals/",
+      "title": "Nokia to support One NZ's network automation goals"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/runways-praxis-1-world-action-model-for-robotics-is-now-available",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "Runway launched Praxis-1 with partners including Noble Machines, Standard Bots, and Ultra. Developers can now use it with open weights. The post Runway’s Praxis-1 world action model for robotics is now available appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-12T13:18:47Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: acquisition or partnership (+22)."
+      ],
+      "relevance_score": 50,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/runways-praxis-1-world-action-model-for-robotics-is-now-available/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590224",
+      "title": "Runway’s Praxis-1 world action model for robotics is now available"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/memories-ai-builds-standardized-egocentric-video-pipeline",
+      "category": "robotics",
+      "event_type": "capacity_or_construction",
+      "excerpt": "Memories.ai provides standardized egocentric video collection and AI-powered annotation to build training data infrastructure for robotics. The post Memories.ai builds standardized egocentric video pipeline appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-11T13:00:34Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: capacity or construction (+22)."
+      ],
+      "relevance_score": 50,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/memories-ai-builds-standardized-egocentric-video-pipeline/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590110",
+      "title": "Memories.ai builds standardized egocentric video pipeline"
+    },
+    {
+      "affected_tickers": [],
+      "canonical_url": "https://www.therobotreport.com/dynamic-creatures-partners-sixth-wall-studio-bring-hasbro-characters-life-with-robots",
+      "category": "robotics",
+      "event_type": "acquisition_or_partnership",
+      "excerpt": "The companies will combine Sixth Wall’s character authoring and alignment with Dynamic Creatures’ mobile, expressive robots. The post Dynamic Creatures partners with Sixth Wall Studio to bring Hasbro characters to life with robots appeared first on The Robot Report .",
+      "exclusion_reason": null,
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "mentioned_companies": [],
+      "priority": "low",
+      "published_at": "2026-11-10T18:31:17Z",
+      "publisher": "The Robot Report",
+      "relevance_reasons": [
+        "Relevant robotics topic (+28).",
+        "Concrete development: acquisition or partnership (+22)."
+      ],
+      "relevance_score": 50,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "the-robot-report",
+      "source_url": "https://www.therobotreport.com/dynamic-creatures-partners-sixth-wall-studio-bring-hasbro-characters-life-with-robots/",
+      "stable_id": "the-robot-report:https://www.therobotreport.com/?p=590210",
+      "title": "Dynamic Creatures partners with Sixth Wall Studio to bring Hasbro characters to life with robots"
+    },
+    {
+      "affected_tickers": [
+        "MSFT"
+      ],
+      "canonical_url": "https://www.datacenterdynamics.com/en/news/cerebras-secures-microsoft-as-a-customer",
+      "category": "ai_semiconductors",
+      "event_type": "other",
+      "excerpt": "Wafer-scale chip and AI cloud company now has three hyperscalers in its books",
+      "exclusion_reason": null,
+      "feed_url": "https://www.datacenterdynamics.com/en/rss/",
+      "mentioned_companies": [
+        "Microsoft"
+      ],
+      "priority": "low",
+      "published_at": "2026-11-13T12:37:09Z",
+      "publisher": "Data Center Dynamics",
+      "relevance_reasons": [
+        "Relevant ai semiconductors topic (+35).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 43,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "data-center-dynamics",
+      "source_url": "https://www.datacenterdynamics.com/en/news/cerebras-secures-microsoft-as-a-customer/",
+      "stable_id": "data-center-dynamics:https://www.datacenterdynamics.com/en/news/cerebras-secures-microsoft-as-a-customer/",
+      "title": "Cerebras secures Microsoft as a customer"
+    },
+    {
+      "affected_tickers": [
+        "AMD"
+      ],
+      "canonical_url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+      "category": "ai_semiconductors",
+      "event_type": "other",
+      "excerpt": "Introducing AMD Helion, Agentic AI Compute at Rack Scale",
+      "exclusion_reason": null,
+      "feed_url": "https://ir.amd.com/news-events/press-releases/rss",
+      "mentioned_companies": [
+        "Advanced Micro Devices"
+      ],
+      "priority": "low",
+      "published_at": "2026-10-12T13:00:00Z",
+      "publisher": "Advanced Micro Devices, Inc. (AMD)",
+      "relevance_reasons": [
+        "Relevant ai semiconductors topic (+35).",
+        "Identifies a publicly traded or named infrastructure company (+8)."
+      ],
+      "relevance_score": 43,
+      "retrieved_at": "2026-11-13T20:30:19Z",
+      "review_status": "unreviewed",
+      "source_id": "amd-investor-relations",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+      "stable_id": "amd-investor-relations:https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+      "title": "Introducing AMD Helion, Agentic AI Compute at Rack Scale"
+    }
+  ],
+  "schema_version": 2
 }
